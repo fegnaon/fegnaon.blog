@@ -6,7 +6,7 @@
   <link href="https://fegnaon.github.io/fegnaon.blog/atom.xml" rel="self"/>
   
   <link href="https://fegnaon.github.io/fegnaon.blog/"/>
-  <updated>2021-10-05T13:15:48.395Z</updated>
+  <updated>2021-10-05T14:25:59.529Z</updated>
   <id>https://fegnaon.github.io/fegnaon.blog/</id>
   
   <author>
@@ -21,10 +21,16 @@
     <link href="https://fegnaon.github.io/fegnaon.blog/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-%E6%95%B4%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0/"/>
     <id>https://fegnaon.github.io/fegnaon.blog/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-%E6%95%B4%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0/</id>
     <published>2021-10-05T13:03:12.000Z</published>
-    <updated>2021-10-05T13:15:48.395Z</updated>
+    <updated>2021-10-05T14:25:59.529Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;整数&quot;&gt;&lt;a href=&quot;#整数&quot; class=&quot;headerlink&quot; title=&quot;整数&quot;&gt;&lt;/a&gt;整数&lt;/h2&gt;&lt;h4 id=&quot;整数的类型&quot;&gt;&lt;a href=&quot;#整数的类型&quot; class=&quot;headerlink&quot; title=&quot;整数的类型&quot;&gt;&lt;/a&gt;整数的类型&lt;/h4&gt;&lt;p&gt;​        C语言中，整数&lt;/p&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;整数&quot;&gt;&lt;a href=&quot;#整数&quot; class=&quot;headerlink&quot; title=&quot;整数&quot;&gt;&lt;/a&gt;整数&lt;/h2&gt;&lt;h4 id=&quot;整数的类型&quot;&gt;&lt;a href=&quot;#整数的类型&quot; class=&quot;headerlink&quot;</summary>
+        
+      
     
     
     
@@ -40,10 +46,17 @@
     <link href="https://fegnaon.github.io/fegnaon.blog/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/"/>
     <id>https://fegnaon.github.io/fegnaon.blog/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/</id>
     <published>2021-10-05T13:03:04.000Z</published>
-    <updated>2021-10-05T13:16:25.921Z</updated>
+    <updated>2021-10-05T14:26:04.061Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;第二章&quot;&gt;&lt;a href=&quot;#第二章&quot; class=&quot;headerlink&quot; title=&quot;第二章&quot;&gt;&lt;/a&gt;第二章&lt;/h2&gt;&lt;p&gt;C程序示例&lt;/p&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;第二章&quot;&gt;&lt;a href=&quot;#第二章&quot; class=&quot;headerlink&quot; title=&quot;第二章&quot;&gt;&lt;/a&gt;第二章&lt;/h2&gt;&lt;p&gt;C程序示例&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
     
     
     
@@ -59,11 +72,18 @@
     <link href="https://fegnaon.github.io/fegnaon.blog/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-1/"/>
     <id>https://fegnaon.github.io/fegnaon.blog/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-1/</id>
     <published>2021-10-05T13:03:01.000Z</published>
-    <updated>2021-10-05T13:16:10.411Z</updated>
+    <updated>2021-10-05T14:26:11.991Z</updated>
     
     
+      
+      
+        
+        
     <summary type="html">&lt;h5 id=&quot;C语言优点&quot;&gt;&lt;a href=&quot;#C语言优点&quot; class=&quot;headerlink&quot; title=&quot;C语言优点&quot;&gt;&lt;/a&gt;C语言优点&lt;/h5&gt;&lt;p&gt; 1.设计特性&lt;/p&gt;
-&lt;p&gt;2.高效性&lt;/p&gt;</summary>
+&lt;p&gt;2.高效性&lt;/p&gt;
+&lt;p&gt;​       </summary>
+        
+      
     
     
     
@@ -79,10 +99,17 @@
     <link href="https://fegnaon.github.io/fegnaon.blog/2021/10/04/21%E5%B9%B410%E6%9C%884%E6%97%A5%E8%AE%B0/"/>
     <id>https://fegnaon.github.io/fegnaon.blog/2021/10/04/21%E5%B9%B410%E6%9C%884%E6%97%A5%E8%AE%B0/</id>
     <published>2021-10-04T12:58:05.000Z</published>
-    <updated>2021-10-05T13:16:46.844Z</updated>
+    <updated>2021-10-05T14:26:17.197Z</updated>
     
     
-    <summary type="html">&lt;p&gt;​        今天做了个并查集的招新题。&lt;/p&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;​        今天做了个并查集的招新题。&lt;/p&gt;
+&lt;p&gt;​       </summary>
+        
+      
     
     
     
@@ -96,11 +123,17 @@
     <link href="https://fegnaon.github.io/fegnaon.blog/2021/10/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
     <id>https://fegnaon.github.io/fegnaon.blog/2021/10/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2021-10-03T05:28:34.000Z</published>
-    <updated>2021-10-05T13:17:07.106Z</updated>
+    <updated>2021-10-05T14:25:54.342Z</updated>
     
     
+      
+      
+        
+        
     <summary type="html">&lt;p&gt;人生中写的第一篇博客，主要就回顾反思一下前18年，和对未来的一些想法吧&lt;/p&gt;
-&lt;h2 id=&quot;回顾&quot;&gt;&lt;a href=&quot;#回顾&quot; class=&quot;headerlink&quot; title=&quot;回顾&quot;&gt;&lt;/a&gt;回顾&lt;/h2&gt;&lt;h3 id=&quot;出生—2021-6-10&quot;&gt;&lt;a href=&quot;#出生—2021-6-10&quot; class=&quot;headerlink&quot; title=&quot;出生—2021.6.10&quot;&gt;&lt;/a&gt;出生—2021.6.10&lt;/h3&gt;&lt;p&gt;​        从出生到高考结束，在计算机方面，大概就是个山东三线小城的普通孩子&lt;/p&gt;</summary>
+&lt;h2 id=&quot;回顾&quot;&gt;&lt;a href=&quot;#回顾&quot; class=&quot;headerlink&quot; title=&quot;回顾&quot;&gt;&lt;/a&gt;回顾&lt;/h2&gt;&lt;h3 id=&quot;出生—2021-6-10&quot;&gt;&lt;a</summary>
+        
+      
     
     
     
