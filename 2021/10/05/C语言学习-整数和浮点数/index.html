@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="author" content="zchengsite, 1451426471@qq.com" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>C语言学习,整数和浮点数 | fegnaon的小博客</title>
+
+  
+    <link rel="apple-touch-icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+    <link rel="icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  
+    <!-- valine comments -->
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="fegnaon的小博客" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/"><img src="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg" alt="" class="js-avatar show"></a>
+    <div class="nickname"><a href="/">fegnaon</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">主页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives">
+          <a href="/archives">归档</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories">
+          <a href="/categories">分类</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags">
+          <a href="/tags">标签</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about">
+          <a href="/about">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<script src="/js/activeNav.js"></script>
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+
+
+
+
+
+
+
+
+<!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+<div class="container post-details" id="post-details">
+  <div class="post-content">
+    <div class="post-title">C语言学习,整数和浮点数</div>
+    <div class="post-attach">
+      <span class="post-pubtime">2021-10-05</span>
+      <span class="post-tags">
+        
+          <i class="iconfont icon-tags"></i>
+          
+          <span class="span--tag">
+            <a href="/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+              #C语言学习
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="markdown-body">
+      有 _Bool , char , short , int , long , long long  他们之间的区别在于占用的储存空间不同<p></p>
+<h5 id="不同整数类型占用的储存空间"><a href="#不同整数类型占用的储存空间" class="headerlink" title="不同整数类型占用的储存空间"></a>不同整数类型占用的储存空间</h5><p>​        char 一定是占一个字节的位数，至少且一般为8位</p>
+<p>​        C标准值规定了char &lt;= short &lt;= int &lt;= long &lt;= long long 具体大小由编译器决定</p>
+<p>​        short至少占16位，long至少占32位，long long至少占64位</p>
+<h5 id="不同整数类型能表示的整数的范围"><a href="#不同整数类型能表示的整数的范围" class="headerlink" title="不同整数类型能表示的整数的范围"></a>不同整数类型能表示的整数的范围</h5><p>​        各数据类型能表示的整数的范围由其占用的储存空间和是否带符号决定</p>
+<p>​                带符号的情况下，因为计算机通过补码的方式表示正负数，若n为位数，则一个整数能表达的整数范围为 -2^(n-1)~2^(n-1)-1</p>
+<p>​                        比如 带符号的 char 能表示的整数范围为 -128~127</p>
+<p>​                不带符号的情况的，若n为位数，则一个整数能表达的整数范围为 0~2^n-1</p>
+<p>​                        比如 不带符号的 char 能表示的整数范围为 0~255</p>
+<p>​        如何表示一个整数带不带符号使用</p>
+<p>​                对于 char 类型的整数，默认情况下带不带符号C标准没有规定，由使用的编译器决定</p>
+<p>​                对于其他类型的整数，都是带符号的</p>
+<p>​                使用unsigned关键能表示一个整数是不带符号，比如 unsigned char 一定是一个不带符号的char类型整数</p>
+<p>​                使用signed关键字也可以强调一个整数是带符号的</p>
+<h5 id="整数的声明"><a href="#整数的声明" class="headerlink" title="整数的声明"></a>整数的声明</h5><p>​        使用 整数类型关键 + 空格 + 变量名 可以声明一个整数，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;</span><br></pre></td></tr></table></figure>
+
+<p>就声明一个类型为int名为x的变量</p>
+<p>​        声明short类型的整数时，整数类型关键字可以写成short int也可以吧int省略，long和long long类型的整数同理</p>
+<p>​        在一行中可以声明多个变量，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x,y,z;</span><br></pre></td></tr></table></figure>
+
+<p>声明的多个变量之间要用”,”隔开</p>
+<p>​        声明时也可以直接为变量赋值，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>就表示声明一个类型为int名为x的变量，并为x变量赋为10</p>
+<p>​        在一行中声明多个变量时也可以为变量赋值，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x,y,z = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<p>表示声明三个类型为int的变量，并将z变量赋值10（并不会给x和y赋值），想给那个变量赋值就在哪个变量后面写=，但一般情况下最好不要混着写。</p>
+<h5 id="整数的赋值"><a href="#整数的赋值" class="headerlink" title="整数的赋值"></a>整数的赋值</h5><p>​        赋值</p>
+<p>​                为整数变量赋值时，默认情况下是赋给变量十进制的数，比如 x = 10;后x等于十进制下的10；</p>
+<p>​        也可以赋给变量八进制或者十六进制的数，在数字前加“0”表示八进制，加“0x”表示十六进制，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">012</span>;</span><br><span class="line">y = <span class="number">0x12</span>;</span><br></pre></td></tr></table></figure>
+
+<p>​        表示x等于十进制下的10，y等于十进制下的18</p>
+<h5 id="储存字符"><a href="#储存字符" class="headerlink" title="储存字符"></a>储存字符</h5><p>​        char类型常用语储存字符，char类型可以通过储存某个字符对应的ascii码来存储对应的字符</p>
+<p>​        在赋值时也可以直接将一个字符常量赋给整数变量（在C语言中，使用单括号括起来的单个字符被称为字符常量），编译器将其转换为对应的ascii码。</p>
+<p>​        打印时，使用%c可以对应ascii码对应的字符，使用%d可以打印存的数的十进制形式。</p>
+<h4 id="可移植类型"><a href="#可移植类型" class="headerlink" title="可移植类型"></a>可移植类型</h4><h5 id="stdint-h"><a href="#stdint-h" class="headerlink" title="stdint.h"></a>stdint.h</h5><p>​        在stdint.h头文件中，有更多的类型名</p>
+<p>​        精确宽度整数类型，如int32_t表示32位的有符号整数类型，</p>
+<p>​        但某个系统对某个宽度可能并不支持，可以用 最小宽度类型，如int_least8_t表示可容纳8位有符号整数值的类型中宽度最小的类型</p>
+<p>​        除此之外，还有intmax_t，int_fast8_t，uintmax_t等</p>
+<h5 id="inttypes-h"><a href="#inttypes-h" class="headerlink" title="inttypes.h"></a>inttypes.h</h5><p>​        inttype.h头文件中包含了一些表示转换说明的宏，如RPId32表示32位的有符号整数</p>
+<h5 id="整数常量的储存方式"><a href="#整数常量的储存方式" class="headerlink" title="整数常量的储存方式"></a>整数常量的储存方式</h5><p>​        通常，十进制整数常量会被储存为int类型，如果大于int类型的范围，会依次使用long和long long</p>
+<p>​        对于八进制或十六进制的整数常量，会依次储存为int , unsigned int , long , unsigned long , long long , unsigned long long类型</p>
+<p>​        如果需要指定储存方式，可以在数字后加上u或U表示unsigned，加上l或L表示long ,比如23uLL,32LU</p>
+<h5 id="Bool类型"><a href="#Bool类型" class="headerlink" title="_Bool类型"></a>_Bool类型</h5><p>​        _Bool类型表示布尔值，用1表示true,用0表示false</p>
+<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><h4 id="浮点数的类型"><a href="#浮点数的类型" class="headerlink" title="浮点数的类型"></a>浮点数的类型</h4><p>​        浮点有float , double , long double三种</p>
+<h5 id="不同浮点数类型占用的储存空间"><a href="#不同浮点数类型占用的储存空间" class="headerlink" title="不同浮点数类型占用的储存空间"></a>不同浮点数类型占用的储存空间</h5><p>​        float占32位，double占64位，long double大于等于double</p>
+<h5 id="不同浮点数类型能表示的浮点数的范围"><a href="#不同浮点数类型能表示的浮点数的范围" class="headerlink" title="不同浮点数类型能表示的浮点数的范围"></a>不同浮点数类型能表示的浮点数的范围</h5><p>​        浮点数在计算机由符号，小数，指数三部分组成</p>
+<p>​        float指数能表示6位有效数字，且取值范围至少是10^(-37)~10^37</p>
+<p>​        double至少能表示10位有效数字，且取值范围至少和float相同</p>
+<p>​        long double的精度至少比double的高</p>
+<h5 id="浮点数的声明"><a href="#浮点数的声明" class="headerlink" title="浮点数的声明"></a>浮点数的声明</h5><p>​        基本和整数的相同，且浮点数赋值时可以用e记法的数</p>
+<h5 id="浮点型常量"><a href="#浮点型常量" class="headerlink" title="浮点型常量"></a>浮点型常量</h5><p>​        浮点型常量的基本形式是，有符号的带小数点的数字 + e或E + 表示指数的有符号的数字</p>
+<p>​        其中，正号可以省略，小数点和指数可以省略其一，小数部分和整数部分可以省略其一</p>
+<p>​        默认情况下，浮点型常量是double类型</p>
+<p>​        同样，在数字后加上f或F，l或L来表示具体的类型，如3.2F ， 32E3L</p>
+<h5 id="浮点值的上溢和下溢"><a href="#浮点值的上溢和下溢" class="headerlink" title="浮点值的上溢和下溢"></a>浮点值的上溢和下溢</h5><p>​        当一个浮点数超过当前类型能表达的最大范围是，就会上溢，这时，该变量会被赋一个表示无穷大的inf或infinity</p>
+<p>​        当一个浮点数的指数部分是最小值的，再减小时会将小数点向左以，小数点部分的最后的一位数会被丢弃</p>
+<h5 id="浮点数的精度"><a href="#浮点数的精度" class="headerlink" title="浮点数的精度"></a>浮点数的精度</h5><p>​        由于计算机中不能表示无穷多的数字</p>
+<p>​        能存储的数字实际上是离散的，因此浮点数的储存，计算等也是存在误差的，在判断浮点数计算的结果的时，可以用增加一个允许的误差范围来得到想要的结果</p>
+    </div>
+    
+      <div class="prev-or-next">
+        <div class="post-foot-next">
+          
+            <a href="/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-2/" target="_self">
+              <i class="iconfont icon-chevronleft"></i>
+              <span>PREV</span>
+            </a>
+          
+        </div>
+        <div class="post-attach">
+          <span class="post-pubtime">2021-10-05</span>
+          <span class="post-tags">
+            
+              <i class="iconfont icon-tags"></i>
+              
+              <span class="span--tag">
+                <a href="/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+                  #C语言学习
+                </a>
+              </span>
+              
+            
+          </span>
+        </div>
+        <div class="post-foot-prev">
+          
+        </div>
+      </div>
+    
+  </div>
+  
+  <div class="post-catalog" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%95%B0"><span class="toc-text">整数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">整数的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%8D%A0%E7%94%A8%E7%9A%84%E5%82%A8%E5%AD%98%E7%A9%BA%E9%97%B4"><span class="toc-text">不同整数类型占用的储存空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%83%BD%E8%A1%A8%E7%A4%BA%E7%9A%84%E6%95%B4%E6%95%B0%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="toc-text">不同整数类型能表示的整数的范围</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-text">整数的声明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E7%9A%84%E8%B5%8B%E5%80%BC"><span class="toc-text">整数的赋值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%82%A8%E5%AD%98%E5%AD%97%E7%AC%A6"><span class="toc-text">储存字符</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E7%A7%BB%E6%A4%8D%E7%B1%BB%E5%9E%8B"><span class="toc-text">可移植类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#stdint-h"><span class="toc-text">stdint.h</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#inttypes-h"><span class="toc-text">inttypes.h</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E5%B8%B8%E9%87%8F%E7%9A%84%E5%82%A8%E5%AD%98%E6%96%B9%E5%BC%8F"><span class="toc-text">整数常量的储存方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Bool%E7%B1%BB%E5%9E%8B"><span class="toc-text">_Bool类型</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-text">浮点数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">浮点数的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B1%BB%E5%9E%8B%E5%8D%A0%E7%94%A8%E7%9A%84%E5%82%A8%E5%AD%98%E7%A9%BA%E9%97%B4"><span class="toc-text">不同浮点数类型占用的储存空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%B5%AE%E7%82%B9%E6%95%B0%E7%B1%BB%E5%9E%8B%E8%83%BD%E8%A1%A8%E7%A4%BA%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="toc-text">不同浮点数类型能表示的浮点数的范围</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-text">浮点数的声明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E5%9E%8B%E5%B8%B8%E9%87%8F"><span class="toc-text">浮点型常量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E5%80%BC%E7%9A%84%E4%B8%8A%E6%BA%A2%E5%92%8C%E4%B8%8B%E6%BA%A2"><span class="toc-text">浮点值的上溢和下溢</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E7%B2%BE%E5%BA%A6"><span class="toc-text">浮点数的精度</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+
+  <script src="/js/catalog.js"></script>
+
+
+
+  
+    <div class="comments-container">
+      
+
+
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'pJO11kdr6VATRADnTpOyahq6-gzGzoHsz',
+      appKey: 'ID7NB8cl8t1mmczTV9KnIFWO',
+      placeholder: 'Welcome!',
+      avatar: 'retro'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+    </div>
+  
+</div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="mscsdfsaw***@163.com">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="facebook" href="">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" href="">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="微信" href="">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="微博" href="">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2020</a>
+    </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+<script src="/js/backtotop.js"></script>
+
+
+    </div>
+  </body>
+</html>

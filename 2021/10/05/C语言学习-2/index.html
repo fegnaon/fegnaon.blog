@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="author" content="zchengsite, 1451426471@qq.com" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>C语言学习,2 | fegnaon的小博客</title>
+
+  
+    <link rel="apple-touch-icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+    <link rel="icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  
+    <!-- valine comments -->
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="fegnaon的小博客" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/"><img src="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg" alt="" class="js-avatar show"></a>
+    <div class="nickname"><a href="/">fegnaon</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">主页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives">
+          <a href="/archives">归档</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories">
+          <a href="/categories">分类</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags">
+          <a href="/tags">标签</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about">
+          <a href="/about">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<script src="/js/activeNav.js"></script>
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+
+
+
+
+
+
+
+
+<!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+<div class="container post-details" id="post-details">
+  <div class="post-content">
+    <div class="post-title">C语言学习,2</div>
+    <div class="post-attach">
+      <span class="post-pubtime">2021-10-05</span>
+      <span class="post-tags">
+        
+          <i class="iconfont icon-tags"></i>
+          
+          <span class="span--tag">
+            <a href="/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+              #C语言学习
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="markdown-body">
+      <p></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>                   <span class="comment">/*一个简单的C程序*/</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">    num = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;I am a simple &quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;computer.\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;My favortie number is %d because it is first .\n num&quot;</span>,num);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>#include &lt;stdio.h&gt;</p>
+</blockquote>
+<p>该行作用相当于把stdio.h文件中的所有内容都输入该行所在的位置</p>
+<p>#include 是一条C预处理器指令。通常，C编译器在编译前会对源代码做一些准备工作，即<em>预处理</em></p>
+<p>stdio.h文件提供了输入输出函数(如printf())</p>
+<p>通常，C程序顶部的信息集合被称为<em>头文件</em></p>
+<blockquote>
+<p>int main()</p>
+</blockquote>
+<p>C程序一定从main()函数开始执行，（）用于识别main是一个函数</p>
+<blockquote>
+<p>/* 一个简单的C程序 */</p>
+</blockquote>
+<p>注释，被/* 和 */ 包住的部分是程序的注释，能让人更容易明白所写的程序，注释会被编译器忽略</p>
+<p>使用// 可以将某一行注释</p>
+<blockquote>
+<p>{}</p>
+</blockquote>
+<p>所有的C函数都使用花括号标记函数体的开始和结束</p>
+<p>花括号还可以用于把函数中的多条语句合并为一个单元或块</p>
+<blockquote>
+<p>int num;</p>
+</blockquote>
+<p>这行代码叫做声明。该声明完成了两件事，一在函数中有一个名为num的变量，二int表明num变量是一个整数，编译器使用这些信息为num变量在内存中分配空间</p>
+<p>int是C语言的一个<em>关键字</em>，表示一种基本的C语言数据类型。关键字是语言定义的单词，不能做其他用途。</p>
+<p>num是一个<em>标识符</em>（一个变量、函数名或其他实体的名称)</p>
+<p>​    变量可以用大小写字母数字下划线（_）来命名，而且名称的第一个字符必须是字母或者下划线，不能是数字</p>
+<p>在C语言中，所有变量都必须先声明才能使用</p>
+<blockquote>
+<p>num = 1;</p>
+</blockquote>
+<p>这行代码是<em>赋值表达式语句</em>，会从右侧把值赋到左侧</p>
+<blockquote>
+<pre><code>printf(&quot;I am a simple &quot;);
+printf(&quot;computer.\n&quot;);
+printf(&quot;My favortie number is %d because it is first .\n num&quot;,num);
+</code></pre>
+</blockquote>
+<p>printf()是C语言的一个标准函数，（）表示printf是一个函数名，（）中的信息被称为参数，从main()函数传递给printf()函数。</p>
+<p>更确切的说，是函数的实际参数。</p>
+<p>​    在C语言中，实际参数是传递给函数的特定值，形式参数是函数中用于储存值的变量</p>
+<p>\n的意思的换行，换行符是一个<em>转义序列</em>，转义序列用于表达难以表示或无法输入的字符</p>
+<p>%d相当于是一个占位符，用来知名输出num的位置</p>
+<blockquote>
+<p>return 0；</p>
+</blockquote>
+<p>用于返回main()函数的返回值</p>
+<h5 id="多条声明"><a href="#多条声明" class="headerlink" title="多条声明"></a>多条声明</h5><p>一条声明中可以声明多个变量，如int a,b;等价与int a; int b;</p>
+<h5 id="加入函数"><a href="#加入函数" class="headerlink" title="加入函数"></a>加入函数</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> hanshu(<span class="keyword">void</span>)</span><br><span class="line"></span><br><span class="line">int <span class="function"><span class="title">main</span>(<span class="params"></span>)</span></span><br><span class="line">&#123;</span><br><span class="line">......</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function"><span class="title">hanshu</span>(<span class="params"><span class="keyword">void</span></span>)</span></span><br><span class="line">&#123;</span><br><span class="line">定义</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一行为<em>函数原型</em>，也被称为<em>函数原型</em>，指明了函数的属性（返回值类型，函数名，参数数量和类型）</p>
+<p>倒数第四行和往后为函数定义，即是函数本身的源代码</p>
+    </div>
+    
+      <div class="prev-or-next">
+        <div class="post-foot-next">
+          
+            <a href="/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-1/" target="_self">
+              <i class="iconfont icon-chevronleft"></i>
+              <span>PREV</span>
+            </a>
+          
+        </div>
+        <div class="post-attach">
+          <span class="post-pubtime">2021-10-05</span>
+          <span class="post-tags">
+            
+              <i class="iconfont icon-tags"></i>
+              
+              <span class="span--tag">
+                <a href="/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+                  #C语言学习
+                </a>
+              </span>
+              
+            
+          </span>
+        </div>
+        <div class="post-foot-prev">
+          
+            <a href="/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-%E6%95%B4%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0/" target="_self">
+              <span>NEXT</span>
+              <i class="iconfont icon-chevronright"></i>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+  <div class="post-catalog" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="toc-text">第二章</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E6%9D%A1%E5%A3%B0%E6%98%8E"><span class="toc-text">多条声明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5%E5%87%BD%E6%95%B0"><span class="toc-text">加入函数</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+
+  <script src="/js/catalog.js"></script>
+
+
+
+  
+    <div class="comments-container">
+      
+
+
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'pJO11kdr6VATRADnTpOyahq6-gzGzoHsz',
+      appKey: 'ID7NB8cl8t1mmczTV9KnIFWO',
+      placeholder: 'Welcome!',
+      avatar: 'retro'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+    </div>
+  
+</div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="mscsdfsaw***@163.com">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="facebook" href="">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" href="">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="微信" href="">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="微博" href="">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2020</a>
+    </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+<script src="/js/backtotop.js"></script>
+
+
+    </div>
+  </body>
+</html>
