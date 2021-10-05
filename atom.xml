@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>fegnaon的小博客</title>
+  
+  
+  <link href="https://fegnaon.github.io/fegnaon.blog/atom.xml" rel="self"/>
+  
+  <link href="https://fegnaon.github.io/fegnaon.blog/"/>
+  <updated>2021-10-05T08:44:03.671Z</updated>
+  <id>https://fegnaon.github.io/fegnaon.blog/</id>
+  
+  <author>
+    <name>fegnaon</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>1</title>
+    <link href="https://fegnaon.github.io/fegnaon.blog/2021/10/05/1/"/>
+    <id>https://fegnaon.github.io/fegnaon.blog/2021/10/05/1/</id>
+    <published>2021-10-05T08:44:03.000Z</published>
+    <updated>2021-10-05T08:44:03.671Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>21年10月4日</title>
+    <link href="https://fegnaon.github.io/fegnaon.blog/2021/10/04/21%E5%B9%B410%E6%9C%884%E6%97%A5/"/>
+    <id>https://fegnaon.github.io/fegnaon.blog/2021/10/04/21%E5%B9%B410%E6%9C%884%E6%97%A5/</id>
+    <published>2021-10-04T12:58:05.000Z</published>
+    <updated>2021-10-04T16:34:07.048Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="2021年10月4日记"><a href="#2021年10月4日记" class="headerlink" title="2021年10月4日记"></a>2021年10月4日记</h2><p>​    今天做了个并查集的招新题。</p><p>​    一开始不知道啥是并查集，也没搜，就直接开始硬做，最后字符串数组强行弄出来一个，但是数据稍微一多就不行了</p><p>​    学oi的舍友回宿舍一看题，说并查集呀。我一搜，恍然大悟，发现自己真是个猪鼻</p><p>​    以后要开始做点算法题惹</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;2021年10月4日记&quot;&gt;&lt;a href=&quot;#2021年10月4日记&quot; class=&quot;headerlink&quot; title=&quot;2021年10月4日记&quot;&gt;&lt;/a&gt;2021年10月4日记&lt;/h2&gt;&lt;p&gt;​    今天做了个并查集的招新题。&lt;/p&gt;
+&lt;p&gt;​    一开始</summary>
+      
+    
+    
+    
+    
+    <category term="日记" scheme="https://fegnaon.github.io/fegnaon.blog/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一篇博客</title>
+    <link href="https://fegnaon.github.io/fegnaon.blog/2021/10/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://fegnaon.github.io/fegnaon.blog/2021/10/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <published>2021-10-03T05:28:34.000Z</published>
+    <updated>2021-10-03T06:16:09.146Z</updated>
+    
+    <content type="html"><![CDATA[<p>人生中写的第一篇博客，主要就回顾反思一下前18年，和对未来的一些想法吧</p><h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><h4 id="出生—2021-6-10"><a href="#出生—2021-6-10" class="headerlink" title="出生—2021.6.10"></a>出生—2021.6.10</h4><p>​    从出生到高考结束，在计算机方面，大概就是个山东三线小城的普通孩子<span id="more"></span>，只是会用电脑来打打游戏逛逛网页，对编程最深入的了解是为了通过小中考在信息课上学的visual basic(现在已经完全不记得当时学过啥…)。高中阶段也没接触过竞赛，也没有什么目标，只想着先尽量考高一点再说，就普普通通的度过的高中阶段，期间也没有怎么很努力过，高考前还天天拿平板在课上看小说（）。</p><h4 id="2021-6-10—2021-9-6"><a href="#2021-6-10—2021-9-6" class="headerlink" title="2021.6.10—2021.9.6"></a>2021.6.10—2021.9.6</h4><p>​    填报志愿时，因为没有喜欢也没有不喜欢的…，就准备选热门的软工或计科，出分前准备冲一冲哈尔滨工业大学(威海)的软件工程或山东大学(威海)的计算机，出分之后直接人品爆炸超常发挥从平常的省一万四五千名直接冲到省4000名，然后选来选去就把成电放在稳上的第一位。也不知道这个选的对不对，但既然来了，就要认真对待了。</p><p>​    9月6号第一天上课之前，每天就是玩玩玩，完全没有预习，不过在这期间也通过水群了解到成电有好多工作室，工作室里好多和厉害的人，而且进工作室不太容易…就准备从开始的上课的第一天开始，努力肝进工作室。</p><h4 id="2021-9-6—2021-10-3"><a href="#2021-9-6—2021-10-3" class="headerlink" title="2021.9.6—2021.10.3"></a>2021.9.6—2021.10.3</h4><p>​    第一个月怎么学的，学的啥现在已经不太能回想起来了，为了记录好自己的学习历程以便回顾复习，也因为招新题要求，从今天开始我要开始充实我的博客，记录一下每天的学习、解决的问题之类的。</p><p>​    第一个月我大概就是在b站看了看翁恺的C语言，做了一些招新题…好像也没干别的了…也不知道为啥这一个月过的这么快…</p><h2 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h2><p>​    以后会尽力充实自己的博客，多写笔记多做记录，不让自己一头雾水吧</p><p>​    做招新题的时候我发现很多时候只是勉强完成了题目，达到的题目的要求，但对于写下的代码，和背后的原理，并没有很好的理解掌握。在招新笔试结束之前的这最后几天，还是会以完成招新题为第一目标，在这之后，我目前的想法是扎扎实实的打好基础(比如把《C primer plus》啃完)。</p><p>​    希望能进去起码一个工作室吧…</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;人生中写的第一篇博客，主要就回顾反思一下前18年，和对未来的一些想法吧&lt;/p&gt;
+&lt;h2 id=&quot;回顾&quot;&gt;&lt;a href=&quot;#回顾&quot; class=&quot;headerlink&quot; title=&quot;回顾&quot;&gt;&lt;/a&gt;回顾&lt;/h2&gt;&lt;h4 id=&quot;出生—2021-6-10&quot;&gt;&lt;a href=&quot;#出生—2021-6-10&quot; class=&quot;headerlink&quot; title=&quot;出生—2021.6.10&quot;&gt;&lt;/a&gt;出生—2021.6.10&lt;/h4&gt;&lt;p&gt;​    从出生到高考结束，在计算机方面，大概就是个山东三线小城的普通孩子</summary>
+    
+    
+    
+    
+    <category term="杂" scheme="https://fegnaon.github.io/fegnaon.blog/tags/%E6%9D%82/"/>
+    
+  </entry>
+  
+</feed>
