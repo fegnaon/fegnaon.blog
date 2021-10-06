@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://fegnaon.github.io/fegnaon.blog/about/index.html</loc>
+    
+    <lastmod>2021-10-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://fegnaon.github.io/fegnaon.blog/2021/10/06/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA/</loc>
+    
+    <lastmod>2021-10-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://fegnaon.github.io/fegnaon.blog/categories/index.html</loc>
     
     <lastmod>2021-10-05</lastmod>
@@ -44,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://fegnaon.github.io/fegnaon.blog/about/index.html</loc>
-    
-    <lastmod>2021-10-05</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://fegnaon.github.io/fegnaon.blog/tags/index.html</loc>
     
     <lastmod>2021-10-05</lastmod>
@@ -60,7 +67,7 @@
 
   <url>
     <loc>https://fegnaon.github.io/fegnaon.blog</loc>
-    <lastmod>2021-10-05</lastmod>
+    <lastmod>2021-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -68,21 +75,21 @@
   
   <url>
     <loc>https://fegnaon.github.io/fegnaon.blog/tags/%E6%97%A5%E8%AE%B0/</loc>
-    <lastmod>2021-10-05</lastmod>
+    <lastmod>2021-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://fegnaon.github.io/fegnaon.blog/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-10-05</lastmod>
+    <lastmod>2021-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://fegnaon.github.io/fegnaon.blog/tags/%E6%9D%82/</loc>
-    <lastmod>2021-10-05</lastmod>
+    <lastmod>2021-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -91,7 +98,7 @@
   
   <url>
     <loc>https://fegnaon.github.io/fegnaon.blog/categories/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-10-05</lastmod>
+    <lastmod>2021-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

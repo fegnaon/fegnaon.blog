@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="author" content="zchengsite, 1451426471@qq.com" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>字符串和格式化输入/输出 | fegnaon的小博客</title>
+
+  
+    <link rel="apple-touch-icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+    <link rel="icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/fegnaon.blog/css/base.css">
+<link rel="stylesheet" href="/fegnaon.blog/iconfont/iconfont.css">
+<link rel="stylesheet" href="/fegnaon.blog/css/github-markdown.css">
+<link rel="stylesheet" href="/fegnaon.blog/css/highlight.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/fegnaon.blog/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  
+    <!-- valine comments -->
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/fegnaon.blog/atom.xml" title="fegnaon的小博客" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/"><img src="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg" alt="" class="js-avatar show"></a>
+    <div class="nickname"><a href="/">fegnaon</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/fegnaon.blog">
+          <a href="/fegnaon.blog">主页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/fegnaon.blog/archives">
+          <a href="/fegnaon.blog/archives">归档</a>
+        </li>
+      
+        <li class="nav-item" data-path="/fegnaon.blog/tags">
+          <a href="/fegnaon.blog/tags">标签</a>
+        </li>
+      
+        <li class="nav-item" data-path="/fegnaon.blog/about">
+          <a href="/fegnaon.blog/about">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<script src="/js/activeNav.js"></script>
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+
+
+
+
+
+
+
+
+<!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+<div class="container post-details" id="post-details">
+  <div class="post-content">
+    <div class="post-title">字符串和格式化输入/输出</div>
+    <div class="post-attach">
+      <span class="post-pubtime">2021-10-06</span>
+      <span class="post-tags">
+        
+          <i class="iconfont icon-tags"></i>
+          
+          <span class="span--tag">
+            <a href="/fegnaon.blog/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+              #C语言学习
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="markdown-body">
+      <h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符串是一个或多个字符的序列，由双引号来表示，如 “Hello , World!” 就是一个字符串</p>
+<p>C语言没有专门用于储存字符串的变量，字符串都被储存在char类型的数组中</p>
+<p>|</p>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>数组是同类型数据元素的有序序列，由连续的储存单元组成</p>
+<h5 id="数组的声明"><a href="#数组的声明" class="headerlink" title="数组的声明"></a>数组的声明</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name[<span class="number">40</span>];</span><br></pre></td></tr></table></figure>
+
+<p>char表示每个元素的类型，name是数组的名字，方括号[]表示这是一个数组，40表示数组占用的字节数</p>
+<p>|</p>
+<p>字符串中除了字符本身，在字符串的最后还有一个非打印字符空字符’\0’来表示字符串的结束，C语言中的字符串一定以空字符结尾</p>
+<p>ps:字符串”s”和字符’s’并不一样，字符串”s”实际上是由’s’和’\0’两个字符组成的</p>
+<h4 id="strlen-函数和sizeof-函数"><a href="#strlen-函数和sizeof-函数" class="headerlink" title="strlen()函数和sizeof()函数"></a>strlen()函数和sizeof()函数</h4><p>sizeof()函数会以字节为单位返回参数的存储空间大小，即使某些储存空间没有字符，他们也会被算在内</p>
+<p>strlen()函数会以字节为单位返回参数除’\0’之前的字符占用的存储空间的大小</p>
+<p>两个函数的返回值类型均为size_t</p>
+<p>ps:不同语言的文字的字符占用的空间的大小会因语言和编码不同而改变，比如utf-8中的一个汉字占3个字节</p>
+<p>比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name[<span class="number">20</span>] = “王大炮”;</span><br><span class="line"><span class="keyword">sizeof</span>(name);                    -&gt;<span class="number">20</span></span><br><span class="line"><span class="built_in">strlen</span>(name);                    -&gt;<span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="常量和C预处理器"><a href="#常量和C预处理器" class="headerlink" title="常量和C预处理器"></a>常量和C预处理器</h2><p>常量除了直接用他们本身表示之外，还可以使用符号常量</p>
+<h4 id="符号常量"><a href="#符号常量" class="headerlink" title="符号常量"></a>符号常量</h4><h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><ol>
+<li><p>  声明一个变量，使之等于某个常量</p>
+</li>
+<li><p>用预处理器来定义常量，0</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ZERO 0</span></span><br></pre></td></tr></table></figure>
+
+<p>  这样可以防止ZERO的值改变，通常用大写表示符号常量，或在名称前面加c_或 k_</p>
+</li>
+<li><p>使用 const 关键字</p>
+<p>  在声明变量时在变量类型前面加上 const 可以来限定一个变量为只读的，该变量的值就无法被改变，如</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> num = <span class="number">10</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ol>
+<li>  能表达的信息更多，常量名通常可以表达比数字更多的信息，如0.98和 G </li>
+<li>  更改常量值的时候只需要在定义常量名的地方改一次，不用每个地方都做改动</li>
+</ol>
+<h5 id="limits-h和float-h"><a href="#limits-h和float-h" class="headerlink" title="limits.h和float.h"></a>limits.h和float.h</h5><p>这两个头文件中，分别定义了一些整数类型和浮点数类型的大小限制相关的常量</p>
+<p>比如CHAR_MAX , INT_MAX , ULONG_MIN或FLT_MAX , DBL_DIG等</p>
+<h2 id="printf-和scanf"><a href="#printf-和scanf" class="headerlink" title="printf()和scanf()"></a>printf()和scanf()</h2><h3 id="printf"><a href="#printf" class="headerlink" title="printf()"></a>printf()</h3><p>printf()的格式为printf(格式化字符串，参数1，参数2……);</p>
+<p>格式化字符串由实际要打印的字符串和转换说明组成，转换说明会按照一定方式被替换</p>
+<h4 id="转换说明"><a href="#转换说明" class="headerlink" title="转换说明"></a>转换说明</h4><p>转换说明用百分号%来表示，格式转换说明符有如下几种</p>
+<table>
+<thead>
+<tr>
+<th>转换说明</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%a</td>
+<td>浮点数、十六进制数和p计数法</td>
+</tr>
+<tr>
+<td>%A</td>
+<td>浮点数、十六进制数和p计数法</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>单个字符</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>有符号十进制整数</td>
+</tr>
+<tr>
+<td>%e</td>
+<td>e记法十进制浮点数，e为小写</td>
+</tr>
+<tr>
+<td>%E</td>
+<td>e加法十进制浮点数，e为大写</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>十进制浮点数</td>
+</tr>
+<tr>
+<td>%g</td>
+<td>根据值的不同，自动选择%f或%e</td>
+</tr>
+<tr>
+<td>%G</td>
+<td>根据值的不同，自动选择%f或%E</td>
+</tr>
+<tr>
+<td>%i</td>
+<td>有符号十进制整数</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>无符号八进制整数</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>指针</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>无符号十进制整数</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>无符号十六进制整数，字母为小写</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>无符号十六进制整数，字母为大写</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>一个百分号%</td>
+</tr>
+</tbody></table>
+<p>除了%%外，转换说明会依次与格式化字符串后面的参数一一对应，并且转换说明一定要和后面的参数想匹配，不然就会出错</p>
+<h5 id="转换说明修饰符"><a href="#转换说明修饰符" class="headerlink" title="转换说明修饰符"></a>转换说明修饰符</h5><p>在百分号%和转换说明字符之间，还可以插入转换说明修饰符来修饰转换说明，格式转换说明修饰符有如下几种</p>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标记</td>
+<td>标记见下一个表格，可以同时使用多个标记</td>
+</tr>
+<tr>
+<td>数字</td>
+<td>最小字段宽度，输出的字段不会比数字中的值小，如果该字段宽度不能容纳要打印的内容，系统会增加宽度</td>
+</tr>
+<tr>
+<td></td>
+<td>如果最小字段宽度比要打印的内容大，默认用空格填充，并且空格加在左边</td>
+</tr>
+<tr>
+<td>.数字</td>
+<td>精度</td>
+</tr>
+<tr>
+<td></td>
+<td>对于%e,%E和%f,表示小数点右边数字的位数</td>
+</tr>
+<tr>
+<td></td>
+<td>对于%g和%G，表示有效数字的最大位数</td>
+</tr>
+<tr>
+<td></td>
+<td>对于%s，表示待打印字符的最大数量</td>
+</tr>
+<tr>
+<td></td>
+<td>对于整数，表示待打印数字的最小位数</td>
+</tr>
+<tr>
+<td></td>
+<td>如果位数不够，会用0来填充，0填充在左边</td>
+</tr>
+<tr>
+<td></td>
+<td>只用一个 . 而不加数字表示 .0</td>
+</tr>
+<tr>
+<td>h</td>
+<td>和整形转换说明一起使用，表示short类型，如%hi , %hu</td>
+</tr>
+<tr>
+<td>hh</td>
+<td>和整形转换说明一起使用，表示char或unsigned char类型</td>
+</tr>
+<tr>
+<td>j</td>
+<td>和整形转换说明一起使用，表示intmax_t或uintmax_t类型，这是stdint.h中的类型</td>
+</tr>
+<tr>
+<td>l</td>
+<td>和整形转换说明一起使用，表示long或unsigned long类型</td>
+</tr>
+<tr>
+<td>ll</td>
+<td>和整形转换说明一起使用，表示long或unsigned long long类型</td>
+</tr>
+<tr>
+<td>L</td>
+<td>和浮点转换说明一起使用，表示long double类型</td>
+</tr>
+<tr>
+<td>t</td>
+<td>和整形转换说明一起使用，表示ptrdiff_t类型，ptrdiff_t是两个指针差值的类型</td>
+</tr>
+<tr>
+<td>z</td>
+<td>和整形转换说明一起使用，表示size_t类型，size_t是sizeof()和strlen()返回的类型</td>
+</tr>
+</tbody></table>
+<p>除此之外，还有一个特殊的*修饰符</p>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>可以代替前一个表中的数字，并在读取后面对于的参数来作为这个数字</td>
+</tr>
+</tbody></table>
+<p>在printf()中，float类型的值会被自动转换为double类型，所有float和double都可以用%f</p>
+<p>标记有如下五种</p>
+<table>
+<thead>
+<tr>
+<th>标记</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-</td>
+<td>要打印的内容左对齐</td>
+</tr>
+<tr>
+<td>+</td>
+<td>若值为正，在值前打印+，若值为负，在值前打印-</td>
+</tr>
+<tr>
+<td>空格</td>
+<td>若值为正，在前面显示空格，若值为负，在之前显示-并覆盖空格</td>
+</tr>
+<tr>
+<td>#</td>
+<td>转化结果形式</td>
+</tr>
+<tr>
+<td></td>
+<td>对于%o , 在值前加上0</td>
+</tr>
+<tr>
+<td></td>
+<td>对于%x或%X , 在值前0x或0X</td>
+</tr>
+<tr>
+<td></td>
+<td>对于所有浮点格式，即时后面没有数字，也会打印一个小数点.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>用0代替空格来填充字段宽度</td>
+</tr>
+<tr>
+<td></td>
+<td>对于整数，若出现-或指定精度，则忽略该标记</td>
+</tr>
+</tbody></table>
+<h5 id="转换说明的意义"><a href="#转换说明的意义" class="headerlink" title="转换说明的意义"></a>转换说明的意义</h5><p>转换说明表示如何将计算机中储存的二进制数据转换为字符串，包括读取多大的储存空间，如何读取，如何转换等</p>
+<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>printf()会返回打印字符的个数，如果输出错误，会返回一个负值。一般很少会用到，但在检查输出错误时可能会用到</p>
+<h4 id="打印较长的字符串"><a href="#打印较长的字符串" class="headerlink" title="打印较长的字符串"></a>打印较长的字符串</h4><p>打印较长的字符串有3种方法</p>
+<ol>
+<li>  使用多个printf()语句</li>
+<li>  在一行的最后加上\表示字符串还没有结束，会从下一行继续(包括下一行开头可能有的空格)</li>
+<li>  使用多个” “,比如”hello” “world”会被自动合并成”helloworld”，中间的空格会被合并</li>
+</ol>
+<h3 id="scanf"><a href="#scanf" class="headerlink" title="scanf()"></a>scanf()</h3><p>scanf()的格式为scanf(格式化字符串，参数1，参数2……);</p>
+<p>与printf()不同，scanf的参数要使用指向变量的指针</p>
+<p>对于基本变量类型的值，要在变量名前加上一个&amp;</p>
+<p>对于数组类型的值，不要加&amp;</p>
+<h5 id="格式转换说明"><a href="#格式转换说明" class="headerlink" title="格式转换说明"></a>格式转换说明</h5><table>
+<thead>
+<tr>
+<th>转换说明</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%c</td>
+<td>把输入解释为单个字符</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>把输入解释为有符号十进制整数</td>
+</tr>
+<tr>
+<td>%e %f %g %a</td>
+<td>把输入解释为浮点数</td>
+</tr>
+<tr>
+<td>%E %F %G %A</td>
+<td>把输入解释为浮点数</td>
+</tr>
+<tr>
+<td>%i</td>
+<td>把输入解释为有符号十进制整数</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>把输入解释为有符号八进制整数</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>把输入解释为指针</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>把输入解释为字符串</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>把输入解释为无符号十进制整数</td>
+</tr>
+<tr>
+<td>%x %X</td>
+<td>把输入解释为有符号十六进制整数</td>
+</tr>
+</tbody></table>
+<h5 id="格式转换修饰"><a href="#格式转换修饰" class="headerlink" title="格式转换修饰"></a>格式转换修饰</h5><table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>抑制赋值，只读取，但读到值不会赋给任何变量</td>
+</tr>
+<tr>
+<td>数字</td>
+<td>最大字段宽度，输入达到最大字段宽度时，停止读取</td>
+</tr>
+<tr>
+<td>hh</td>
+<td>把整数作为signed char或unsigned char类型读取</td>
+</tr>
+<tr>
+<td>ll</td>
+<td>把整数作为long long或unsigned long long类型读取</td>
+</tr>
+<tr>
+<td>h</td>
+<td>把整数作为short或unsigned short类型读取</td>
+</tr>
+<tr>
+<td>l</td>
+<td>把整数作为long或unsigned long类型读取</td>
+</tr>
+<tr>
+<td></td>
+<td>或把浮点数作为double类型读取</td>
+</tr>
+<tr>
+<td>L</td>
+<td>把浮点作为long double类型读取</td>
+</tr>
+<tr>
+<td>j</td>
+<td>表示使用intmax_t类型或uintmax_t类型</td>
+</tr>
+<tr>
+<td>z</td>
+<td>表示使用size_t类型</td>
+</tr>
+<tr>
+<td>t</td>
+<td>表示使用表示两个指针差值的类型</td>
+</tr>
+</tbody></table>
+<p>在scanf()中，float类型要用%f，double类型要用%lf，不能够混用</p>
+<h4 id="scanf-如何读取输入"><a href="#scanf-如何读取输入" class="headerlink" title="scanf()如何读取输入"></a>scanf()如何读取输入</h4><p>scanf()会从输入的第一个匹配的字符开始读取，比如%d会从一个数字或者正负号开始读取，到不匹配的字符或空白字符结束</p>
+<p>空白字符是指 空格、回车和tab</p>
+<p>使用最大字段宽度时，读取到最大字段款到时就会结束</p>
+<p>读取完一个参数后，会从上一次读取结束的地方开始读取下一个参数</p>
+<p>对于%c，会读取任何一个字符，包括空白字符</p>
+<h5 id="返回值-1"><a href="#返回值-1" class="headerlink" title="返回值"></a>返回值</h5><p>scanf()函数会返回成功读取的项数</p>
+
+    </div>
+    
+      <div class="prev-or-next">
+        <div class="post-foot-next">
+          
+            <a href="/fegnaon.blog/2021/10/05/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0-%E6%95%B4%E6%95%B0%E5%92%8C%E6%B5%AE%E7%82%B9%E6%95%B0/" target="_self">
+              <i class="iconfont icon-chevronleft"></i>
+              <span>PREV</span>
+            </a>
+          
+        </div>
+        <div class="post-attach">
+          <span class="post-pubtime">2021-10-06</span>
+          <span class="post-tags">
+            
+              <i class="iconfont icon-tags"></i>
+              
+              <span class="span--tag">
+                <a href="/fegnaon.blog/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+                  #C语言学习
+                </a>
+              </span>
+              
+            
+          </span>
+        </div>
+        <div class="post-foot-prev">
+          
+        </div>
+      </div>
+    
+  </div>
+  
+  <div class="post-catalog" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-text">数组的声明</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#strlen-%E5%87%BD%E6%95%B0%E5%92%8Csizeof-%E5%87%BD%E6%95%B0"><span class="toc-text">strlen()函数和sizeof()函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E5%92%8CC%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-text">常量和C预处理器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E5%B8%B8%E9%87%8F"><span class="toc-text">符号常量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA"><span class="toc-text">创建</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#limits-h%E5%92%8Cfloat-h"><span class="toc-text">limits.h和float.h</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#printf-%E5%92%8Cscanf"><span class="toc-text">printf()和scanf()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#printf"><span class="toc-text">printf()</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E"><span class="toc-text">转换说明</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">转换说明修饰符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-text">转换说明的意义</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E8%BE%83%E9%95%BF%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">打印较长的字符串</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scanf"><span class="toc-text">scanf()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E8%AF%B4%E6%98%8E"><span class="toc-text">格式转换说明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E4%BF%AE%E9%A5%B0"><span class="toc-text">格式转换修饰</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scanf-%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5"><span class="toc-text">scanf()如何读取输入</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC-1"><span class="toc-text">返回值</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+
+  <script src="/js/catalog.js"></script>
+
+
+
+  
+    <div class="comments-container">
+      
+
+
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'pJO11kdr6VATRADnTpOyahq6-gzGzoHsz',
+      appKey: 'ID7NB8cl8t1mmczTV9KnIFWO',
+      placeholder: 'Welcome!',
+      avatar: 'retro'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+    </div>
+  
+</div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2020</a>
+    </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+<script src="/js/backtotop.js"></script>
+
+
+    </div>
+  </body>
+</html>
