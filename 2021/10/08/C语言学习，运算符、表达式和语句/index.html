@@ -216,10 +216,15 @@
 </tr>
 </tbody></table>
 <ol>
-<li>  将一种类型的值赋给另一种类型的变量时，会将=右侧的值转换为左侧的数据类型的值</li>
-<li>  在含有不同类型数据的混合运算中，会将较低级类型的数据升级为表达式中最高级的类型的数据</li>
-<li>  在表达式中，short和char无论如何都会被先转换为int</li>
-<li>  在表达式中，float无论如何都会被先转换为double</li>
+<li><p>  将一种类型的值赋给另一种类型的变量时，会将=右侧的值转换为左侧的数据类型的值</p>
+</li>
+<li><p>在含有不同类型数据的混合运算中，会将较低级类型的数据升级为表达式中最高级的类型的数据，每进行一步才进行一次转换</p>
+<p>   比如3/5*22.0会从左往右先算3/5为0，然后算0*22.0为0，不会一下全部转换为double</p>
+</li>
+<li><p>  在表达式中，short和char无论如何都会被先转换为int</p>
+</li>
+<li><p>  在表达式中，float无论如何都会被先转换为double</p>
+</li>
 </ol>
 <h4 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h4><p>当需要精确的进行类型转换的时候，可以使用强制类型转化，通过强制类型转换运算符来完成</p>
 <p>强制类型转换运算符的形式为 (类型名) ，比如(int)</p>
@@ -262,6 +267,11 @@
           </span>
         </div>
         <div class="post-foot-prev">
+          
+            <a href="/fegnaon.blog/2021/10/08/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%EF%BC%8C%E5%BE%AA%E7%8E%AF/" target="_self">
+              <span>NEXT</span>
+              <i class="iconfont icon-chevronright"></i>
+            </a>
           
         </div>
       </div>
