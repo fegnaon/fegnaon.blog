@@ -113,7 +113,7 @@
       </span>
     </div>
     <div class="markdown-body">
-      <h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>C语言中以下3中逻辑运算符</p>
+      <h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>C语言中以下 3 种逻辑运算符</p>
 <table>
 <thead>
 <tr>
@@ -134,13 +134,13 @@
 <td>非</td>
 </tr>
 </tbody></table>
-<p>&amp;&amp;为二元运算符，当&amp;&amp;左右两侧的运算对象值都为真时，整个逻辑表达式的值为真，若有一个运算对象为假，整个逻辑表达式的值为假</p>
-<p>||为二元运算符，当||左右两侧的运算对象中有一个为真时，整个逻辑表达式的值为真，若有两个运算对象都为假，整个逻辑表达式的值为假</p>
-<p>！为一元运算符，运算对象放在其右侧，当运算对象值为真时，整个逻辑表达式的值为假，当运算对象值为假时，整个逻辑表达式的值为真</p>
+<p>&amp;&amp; 为二元运算符，当 &amp;&amp; 左右两侧的运算对象值都为真时，整个逻辑表达式的值为真，若有一个运算对象为假，整个逻辑表达式的值为假</p>
+<p>|| 为二元运算符，当 || 左右两侧的运算对象中有一个为真时，整个逻辑表达式的值为真，若有两个运算对象都为假，整个逻辑表达式的值为假</p>
+<p>! 为一元运算符，运算对象放在其右侧，当运算对象值为真时，整个逻辑表达式的值为假，当运算对象值为假时，整个逻辑表达式的值为真</p>
 <p>比如</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> &amp;&amp; <span class="number">2</span>&lt;<span class="number">3</span> 的值为真</span><br><span class="line"><span class="number">9</span>&gt;<span class="number">3</span> || <span class="number">4</span>&lt;<span class="number">2</span>  的值为真</span><br><span class="line">！<span class="number">0</span> 的值为真</span><br></pre></td></tr></table></figure>
 
-<h4 id="iso646-h头文件"><a href="#iso646-h头文件" class="headerlink" title="iso646.h头文件"></a>iso646.h头文件</h4><p>如果包含该头文件，可以用 and 作为 &amp;&amp; 的别名，用 or 作为 || 的别名，用 not 作为 ! 的别名</p>
+<h4 id="iso646-h-头文件"><a href="#iso646-h-头文件" class="headerlink" title="iso646.h 头文件"></a>iso646.h 头文件</h4><p>如果包含该头文件，可以用 and 作为 &amp;&amp; 的别名，用 or 作为 || 的别名，用 not 作为 ! 的别名</p>
 <h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><table>
 <thead>
 <tr>
@@ -186,23 +186,23 @@
 </tr>
 </tbody></table>
 <h4 id="求值顺序"><a href="#求值顺序" class="headerlink" title="求值顺序"></a>求值顺序</h4><p>逻辑运算符的求值顺序都是从左往右</p>
-<p>&amp;&amp;和||都相当于一个序列点，左侧运算对象的副作用都会在&amp;&amp;或||处生效，而且一旦发现有使整个表达式为假的因素就立刻停止求值，比如</p>
+<p>&amp;&amp; 和 || 都相当于一个序列点，左侧运算对象的副作用都会在 &amp;&amp; 或 || 处生效，而且一旦发现有使整个表达式为假的因素就立刻停止求值，比如</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a = <span class="number">0</span>) &amp;&amp; (b = <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 
-<p>a = 0就已经能够决定整个表达式为假了，就会停止求值，不会在执行b = 10</p>
-<h3 id="条件运算符：？"><a href="#条件运算符：？" class="headerlink" title="条件运算符：？"></a>条件运算符：？</h3><p>条件运算符”?”有三个运算对象，是C语言中唯一的三元运算符</p>
+<p>a = 0 就已经能够决定整个表达式为假了，就会停止求值，不会在执行 b = 10</p>
+<h3 id="条件运算符：？"><a href="#条件运算符：？" class="headerlink" title="条件运算符：？"></a>条件运算符：？</h3><p>条件运算符 ? 有三个运算对象，是C语言中唯一的三元运算符</p>
 <p>条件运算符的通用形式如下</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expression1 ? expression2:expression3</span><br></pre></td></tr></table></figure>
 
-<p>如果expression1值为真，则整个表达式的值为expression2的值，若expression1的值为假，则整个表达式的值为expression3的值</p>
-<p>当需要将两个值中的一个赋给某个变量时，就可以用条件运算符，条件运算符可以更简洁的完成一些if else语句的任务</p>
+<p>如果 expression1 值为真，则整个表达式的值为 expression2 的值，若 expression1 的值为假，则整个表达式的值为 expression3 的值</p>
+<p>当需要将两个值中的一个赋给某个变量时，就可以用条件运算符，条件运算符可以更简洁的完成一些 if else 语句的任务</p>
 <h2 id="循环辅助"><a href="#循环辅助" class="headerlink" title="循环辅助"></a>循环辅助</h2><p>一般情况下，每次执行循环体时都会完整的执行一遍循环体，但有的时候只需要执行一部分循环体，就可以使用 continue 和 break 实现</p>
-<p>以下两个语句都可以用于3种循环</p>
-<h3 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句"></a>continue 语句</h3><p>continue语句的形式： continue;</p>
+<p>以下两个语句都可以用于 3 种循环</p>
+<h3 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句"></a>continue 语句</h3><p>continue 语句的形式： continue;</p>
 <p>使用 continue 语句能直接跳过本次迭代的剩余内容，并开始下一轮循环</p>
-<h3 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h3><p>break语句的形式：break;</p>
+<h3 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h3><p>break 语句的形式：break;</p>
 <p>使用 break 语句会终止包含它的那一层循环，并执行循环后面的语句</p>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="4中分支语句"><a href="#4中分支语句" class="headerlink" title="4中分支语句"></a>4中分支语句</h3><h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><p>if语句的通用形式如下</p>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="4中分支语句"><a href="#4中分支语句" class="headerlink" title="4中分支语句"></a>4中分支语句</h3><h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><p>if 语句的通用形式如下</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (expression)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
 
 <p>如果 expression 的值为真，就执行 statement，如果 expression 的值为假，就跳过 statement 执行后面的语句</p>
@@ -215,17 +215,16 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (expression1)</span><br><span class="line">    statement1</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    statement2</span><br></pre></td></tr></table></figure>
 
 <p>else 与前面的距离它最近的 if 配对</p>
-<p>当 else 上面的所有 expression （包括 if 的和 else if 的）都为假时，就会执行statement2，然后退出整个分支语句</p>
-<p>switch</p>
-<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><p>当涉及到多重选择的时候，可以使用switch语句，其通用形式如下</p>
+<p>当 else 上面的所有 expression （包括 if 的和 else if 的）都为假时，就会执行 statement2，然后退出整个分支语句</p>
+<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><p>当涉及到多重选择的时候，可以使用 switch 语句，其通用形式如下</p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">switch (expression)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">case</span> a : <span class="type">statementa</span></span><br><span class="line">    <span class="keyword">case</span> a : <span class="type">statementb</span></span><br><span class="line">    <span class="keyword">case</span> a : <span class="type">statementc</span></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">    default : <span class="type">statement</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>当 expression 的值与 a 相同时，就执行 statementa ， 然后再判断 expression 的值是否与 b 的相同，若相同就只执行 statementb ……一直到所有case都判断完，如果一个匹配的case都没有，就执行default后面的statement，如果有至少一个，就不执行statement</p>
-<h4 id="switch语句中的break语句"><a href="#switch语句中的break语句" class="headerlink" title="switch语句中的break语句"></a>switch语句中的break语句</h4><p>在switch语句中的某个statement中，可以使用break语句来跳出switch语句，以免每个case都要判断一次</p>
+<p>当 expression 的值与 a 相同时，就执行 statementa ， 然后再判断 expression 的值是否与 b 的相同，若相同就只执行 statementb ……一直到所有 case 都判断完，如果一个匹配的 case 都没有，就执行 default 后面的 statement ，如果有至少一个，就不执行 statement</p>
+<h4 id="switch-语句中的-break-语句"><a href="#switch-语句中的-break-语句" class="headerlink" title="switch 语句中的 break 语句"></a>switch 语句中的 break 语句</h4><p>在 switch 语句中的某个 statement 中，可以使用 break 语句来跳出 switch 语句，以免每个 case 都要判断一次</p>
 <h2 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h2><h3 id="goto-语句"><a href="#goto-语句" class="headerlink" title="goto 语句"></a>goto 语句</h3><p>goto 语句的通用形式如下</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">goto</span> name;</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">... </span><br><span class="line">name: statement</span><br></pre></td></tr></table></figure>
 
-<p>当程序运行到goto时，会直接跳转到goto后面的标识符对应的标识符处，中间的语句都不会执行</p>
+<p>当程序运行到 goto 时，会直接跳转到 goto 后面的标识符对应的标识符处，中间的语句都不会执行</p>
 <p>标签名可以由字母，数字，下划线组成，但是第一个字符不能是数字</p>
 
     </div>
@@ -264,7 +263,7 @@
   <div class="post-catalog" id="catalog">
     <div class="title">目录</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">逻辑运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iso646-h%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="toc-text">iso646.h头文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%80%BC%E9%A1%BA%E5%BA%8F"><span class="toc-text">求值顺序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A%EF%BC%9F"><span class="toc-text">条件运算符：？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%BE%85%E5%8A%A9"><span class="toc-text">循环辅助</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#continue-%E8%AF%AD%E5%8F%A5"><span class="toc-text">continue 语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#break-%E8%AF%AD%E5%8F%A5"><span class="toc-text">break 语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E4%B8%AD%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">4中分支语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if-%E8%AF%AD%E5%8F%A5"><span class="toc-text">if 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#else-if-%E8%AF%AD%E5%8F%A5"><span class="toc-text">else if 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#else-%E8%AF%AD%E5%8F%A5"><span class="toc-text">else 语句</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#switch%E8%AF%AD%E5%8F%A5"><span class="toc-text">switch语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#switch%E8%AF%AD%E5%8F%A5%E4%B8%AD%E7%9A%84break%E8%AF%AD%E5%8F%A5"><span class="toc-text">switch语句中的break语句</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC"><span class="toc-text">跳转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#goto-%E8%AF%AD%E5%8F%A5"><span class="toc-text">goto 语句</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">逻辑运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#iso646-h-%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="toc-text">iso646.h 头文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%80%BC%E9%A1%BA%E5%BA%8F"><span class="toc-text">求值顺序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A%EF%BC%9F"><span class="toc-text">条件运算符：？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%BE%85%E5%8A%A9"><span class="toc-text">循环辅助</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#continue-%E8%AF%AD%E5%8F%A5"><span class="toc-text">continue 语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#break-%E8%AF%AD%E5%8F%A5"><span class="toc-text">break 语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF"><span class="toc-text">分支</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E4%B8%AD%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">4中分支语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if-%E8%AF%AD%E5%8F%A5"><span class="toc-text">if 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#else-if-%E8%AF%AD%E5%8F%A5"><span class="toc-text">else if 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#else-%E8%AF%AD%E5%8F%A5"><span class="toc-text">else 语句</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#switch%E8%AF%AD%E5%8F%A5"><span class="toc-text">switch语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#switch-%E8%AF%AD%E5%8F%A5%E4%B8%AD%E7%9A%84-break-%E8%AF%AD%E5%8F%A5"><span class="toc-text">switch 语句中的 break 语句</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E8%BD%AC"><span class="toc-text">跳转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#goto-%E8%AF%AD%E5%8F%A5"><span class="toc-text">goto 语句</span></a></li></ol></li></ol>
     </div>
   </div>
 
