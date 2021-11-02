@@ -6,7 +6,7 @@
   <link href="https://fegnaon.github.io/fegnaon.blog/atom.xml" rel="self"/>
   
   <link href="https://fegnaon.github.io/fegnaon.blog/"/>
-  <updated>2021-11-01T13:32:34.817Z</updated>
+  <updated>2021-11-02T13:37:44.656Z</updated>
   <id>https://fegnaon.github.io/fegnaon.blog/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C语言学习，数组和指针</title>
+    <link href="https://fegnaon.github.io/fegnaon.blog/2021/11/01/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%EF%BC%8C%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88/"/>
+    <id>https://fegnaon.github.io/fegnaon.blog/2021/11/01/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%EF%BC%8C%E6%95%B0%E7%BB%84%E5%92%8C%E6%8C%87%E9%92%88/</id>
+    <published>2021-11-01T13:36:01.000Z</published>
+    <updated>2021-11-02T13:37:44.656Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h1&gt;&lt;p&gt;数组是由数据类型相同的一系列元素组成的&lt;/p&gt;
+&lt;h4 id=&quot;创建数组&quot;&gt;&lt;a href=&quot;#创建数组&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="C语言学习" scheme="https://fegnaon.github.io/fegnaon.blog/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>C语言学习，函数和指针初见</title>
