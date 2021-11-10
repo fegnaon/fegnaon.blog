@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="author" content="zchengsite, 1451426471@qq.com" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>C语言学习，文件输入/输出 | fegnaon的小博客</title>
+
+  
+    <link rel="apple-touch-icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+    <link rel="icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/fegnaon.blog/css/base.css">
+<link rel="stylesheet" href="/fegnaon.blog/iconfont/iconfont.css">
+<link rel="stylesheet" href="/fegnaon.blog/css/github-markdown.css">
+<link rel="stylesheet" href="/fegnaon.blog/css/highlight.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/fegnaon.blog/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  
+    <!-- valine comments -->
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/fegnaon.blog/atom.xml" title="fegnaon的小博客" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/"><img src="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg" alt="" class="js-avatar show"></a>
+    <div class="nickname"><a href="/">fegnaon</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/fegnaon.blog">
+          <a href="/fegnaon.blog">主页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/fegnaon.blog/archives">
+          <a href="/fegnaon.blog/archives">归档</a>
+        </li>
+      
+        <li class="nav-item" data-path="/fegnaon.blog/tags">
+          <a href="/fegnaon.blog/tags">标签</a>
+        </li>
+      
+        <li class="nav-item" data-path="/fegnaon.blog/about">
+          <a href="/fegnaon.blog/about">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<script src="/js/activeNav.js"></script>
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+
+
+
+
+
+
+
+
+<!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+<div class="container post-details" id="post-details">
+  <div class="post-content">
+    <div class="post-title">C语言学习，文件输入/输出</div>
+    <div class="post-attach">
+      <span class="post-pubtime">2021-11-10</span>
+      <span class="post-tags">
+        
+          <i class="iconfont icon-tags"></i>
+          
+          <span class="span--tag">
+            <a href="/fegnaon.blog/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+              #C语言学习
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="markdown-body">
+      <h2 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h2><h3 id="文件是什么"><a href="#文件是什么" class="headerlink" title="文件是什么"></a>文件是什么</h3><p>文件（file）通常是在磁盘或固态硬盘上的一段已命名的存储区</p>
+<p>对操作系统而言，文件会比较复杂</p>
+<p>而C把文件看作是一系列连续的字符串，每个字节都能被单独读取</p>
+<p>由于不同的环境中的文件的格式可能不同，C语言提供两种文件模式，文本模式和二进制模式</p>
+<h3 id="文本模式和二进制模式"><a href="#文本模式和二进制模式" class="headerlink" title="文本模式和二进制模式"></a>文本模式和二进制模式</h3><h4 id="文本内容和二进制内容"><a href="#文本内容和二进制内容" class="headerlink" title="文本内容和二进制内容"></a>文本内容和二进制内容</h4><p>所有文件的内容在计算机中都以二进制形式（0和1）存储。</p>
+<p>如果文件是用的字符编码表示的文本，该文件就是文本文件，其中包含文本内容。</p>
+<p>如果文件中的二进制值表示的其他的大小（比如机器语言代码，数组，图片或者音乐编码等），该文件就是二进制文件，其中包含二进制内容</p>
+<h4 id="文件的文本模式和二进制模式"><a href="#文件的文本模式和二进制模式" class="headerlink" title="文件的文本模式和二进制模式"></a>文件的文本模式和二进制模式</h4><p>在不同的系统，文本文件的格式并不完全相同，比如在MS-DOS中，/r/n表示换行符，在UNIX中，/n表示换行符</p>
+<p>为了规范文本文件的处理，C语言提供两种访问文件的途径，<strong>二进制模式</strong>和<strong>文本模式</strong></p>
+<p>在文本模式中，C语言把不同格式的内容都转换为UNIX格式</p>
+<p>在二进制模式中，程序能访问文件原始的每个字节，如图</p>
+<p><img src="https://i.loli.net/2021/11/10/GZdfpIk6TiAYyXC.jpg" alt="IMG_20211110_142448.jpg"></p>
+<h3 id="I-O的级别"><a href="#I-O的级别" class="headerlink" title="I/O的级别"></a>I/O的级别</h3><p>除了选择文件的格式，大多数情况下，还可以选择I/O的两个级别（即处理文件访问的两个级别）</p>
+<p>底层I/O（low-level I/O）使用操作系统体提供的基本I/O服务</p>
+<p>标准高级I/O（standard high-level I/O）使用C库的标准包和stdio.h头文件定义，因为无法保证所有操作系统都使用相同的底层I/O模型，C标准建立了可移植的I/O模型</p>
+<h3 id="标准文件"><a href="#标准文件" class="headerlink" title="标准文件"></a>标准文件</h3><p>C程序会自动打开3个文件，它们被称为<strong>标准输入</strong>（standard input）、<strong>标准输出</strong>（standard output）和<strong>标准错误输出</strong>（standard error output），在默认情况下，标准输入是系统的普通输入设备，通常为键盘；标准输出和标准错误输出是系统的普通输出设备，通常为显示屏。</p>
+<p>标准输入为程序提供输入，它是getchar() 和scanf() 使用的文件</p>
+<p>程序通常输出到标准输出，它是putchar() 、puts() 和printf() 使用的文件</p>
+<p>可以使用重定向来把其他文件视为标准文件</p>
+<h3 id="标准I-O"><a href="#标准I-O" class="headerlink" title="标准I/O"></a>标准I/O</h3><p>与底层I/O相比，标准I/O处理可移植之外，还有两个好处</p>
+<p>第一，标准I/O有许多专门的函数简化了处理不同I/O的问题</p>
+<p>第二，输入和输出都是缓冲的。也就是说，一次转移一大块信息而不是一字节信息（通常至少512字节），这极大的提高了数据传输速率</p>
+<h3 id="文件结尾"><a href="#文件结尾" class="headerlink" title="文件结尾"></a>文件结尾</h3><p>当程序读到文件结束时，用getc() 函数获取一个字符时会返回特殊值EOF</p>
+<h3 id="标准I-O的机理"><a href="#标准I-O的机理" class="headerlink" title="标准I/O的机理"></a>标准I/O的机理</h3><p>使用标准I/O的第一步是调用fopen() 打开文件</p>
+<p>fopen() 函数不仅打开一个文件，还创建了一个缓冲区（在读写模式下会创建两个缓冲区）以及一个包含文件和缓冲区数据的结构</p>
+<p>这个结构通常包含一个指定流中当前位置的文件位置指示器，此外，它还包含错误和文件结尾指示器、一个指向缓冲区开始处的指针、一个文件标识符和一个计数（统计实际拷贝进缓冲区的字节数）</p>
+<p>调用输入函数时，文件中缓冲大小数据块就被拷贝到缓冲区中，缓冲区的大小因实现而异，一般是512字节或是它的倍数</p>
+<p>除了填充缓冲区之外，还要设置流中的当前位置和拷贝进缓冲区的字节数。通常，当前位置从0字节开始</p>
+<p>在初始化结构和缓冲区之后，输入函数按要求从缓冲区中读取数据。在它读取数据时，文件位置指示器被设置为指向刚读取字符的下一个字符。由于stdio.h系列的所有输入函数都使用相同的缓冲区，所以调佣任何一个函数都将从上一次函数停止调用的位置开始</p>
+<p>当输入函数发现已读完缓冲区中的所有字符时，会请求把下一个缓冲大小的数据块从文件拷贝到该缓冲区中。以这种方式，输入函数可以读取文件中的所有内容，直到文件结尾。函数在读取缓冲区的最后一个字符后，把结尾指示器设置为真，于是，下一次被调用的输入函数将返回EOF</p>
+<p>输出函数以类似的方式把数据写入缓冲区，当缓冲区被填满时，数据将被拷贝至文件中</p>
+<h2 id="标准I-O函数"><a href="#标准I-O函数" class="headerlink" title="标准I/O函数"></a>标准I/O函数</h2><p>stdio.h头文件提供了一些标准I/O函数</p>
+<h4 id="fopen-函数"><a href="#fopen-函数" class="headerlink" title="fopen() 函数"></a>fopen() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">FILE *<span class="title">fopen</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pathname, <span class="keyword">const</span> <span class="keyword">char</span> *mode)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>fopen() 函数用于打开文件，第1个参数是待打开的文件的文件名，第2个参数是一个字符串，指明了打开文件的模式</p>
+<p>C库提供了以下模式</p>
+<table>
+<thead>
+<tr>
+<th>模式字符串</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“r”</td>
+<td>以读模式打开文件</td>
+</tr>
+<tr>
+<td>“w”</td>
+<td>以写模式打开文件，把现有文件的长度截为0，如果文件不存在，则创建一个新文件</td>
+</tr>
+<tr>
+<td>“a”</td>
+<td>以写模式打开文件，在现有文件末尾添加内容，如果文件不存在，则创建一个新文件</td>
+</tr>
+<tr>
+<td>“r+”</td>
+<td>以更新模式（即可以读写文件）打开文件</td>
+</tr>
+<tr>
+<td>“w+”</td>
+<td>以更新模式打开文件，如果文件存在，则将其长度截为0，如果文件不存在，则创建一个新文件</td>
+</tr>
+<tr>
+<td>“a+”</td>
+<td>以更新模式打开文件，在现有文件的末尾添加内容，如果文件不存在，则创建一个新文件；可以读整个文件，但是只能从末尾添加内容</td>
+</tr>
+<tr>
+<td>“rb”</td>
+<td>二进制模式的”r”</td>
+</tr>
+<tr>
+<td>“wb”</td>
+<td>二进制模式的”w”</td>
+</tr>
+<tr>
+<td>“ab”</td>
+<td>二进制模式的”a”</td>
+</tr>
+<tr>
+<td>“rb+”或”r+b”</td>
+<td>二进制模式的”r+”</td>
+</tr>
+<tr>
+<td>“wb+”或”w+b”</td>
+<td>二进制模式的”w+”</td>
+</tr>
+<tr>
+<td>“ab+”或”a+b”</td>
+<td>二进制模式的”a+”</td>
+</tr>
+</tbody></table>
+<p>程序成功打开文件后，将返回一个文件指针，其它I/O函数就可以通过这个指针指定该文件</p>
+<h5 id="文件指针"><a href="#文件指针" class="headerlink" title="文件指针"></a>文件指针</h5><p>文件指针的类型是指向FILE的指针，并不指向实际的文件，FILE是一个包含文件信息的数据对象，其中包含了操作文件的I/O函数所用的缓冲区信息（比如缓冲区的位置，缓冲区被填充的程度，操作哪一个文件），FILE是一个C结构（结构以后学）</p>
+<p>stdio.h头文件会把3个文件指针与3个标准文件相关联</p>
+<table>
+<thead>
+<tr>
+<th>标准文件</th>
+<th>文件指针</th>
+<th>通常使用的设备</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标准输入</td>
+<td>stdin</td>
+<td>键盘</td>
+</tr>
+<tr>
+<td>标准输出</td>
+<td>stdout</td>
+<td>显示屏</td>
+</tr>
+<tr>
+<td>标准错误输出</td>
+<td>stderr</td>
+<td>显示屏</td>
+</tr>
+</tbody></table>
+<h4 id="getc-函数和putc-函数"><a href="#getc-函数和putc-函数" class="headerlink" title="getc() 函数和putc() 函数"></a>getc() 函数和putc() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getc</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">putc</span><span class="params">(<span class="keyword">int</span> c, FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>getc() 函数和putc() 的作用和getchar() putchar() 的类似，不同的是，使用getc() 和putc() 时要告诉函数使用哪一个文件</p>
+<h4 id="fclose-函数"><a href="#fclose-函数" class="headerlink" title="fclose() 函数"></a>fclose() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fclose</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>该函数用于关闭参数指定的文件，必要时刷新缓冲区</p>
+<p>如果成功关闭，返回0，否则返回EOF</p>
+<p>如果磁盘已满、移动硬盘被移除或出现I/O错误都会导致调用fclose() 函数失败</p>
+<h4 id="sprintf-和scanf-函数"><a href="#sprintf-和scanf-函数" class="headerlink" title="sprintf() 和scanf() 函数"></a>sprintf() 和scanf() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sprintf</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fscanf</span><span class="params">(FILE *stream, <span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这两个函数的作用和printf() scanf() 的类似，不过需要使用第一个参数来指定待处理的文件</p>
+<h4 id="fgets-和fputs-函数"><a href="#fgets-和fputs-函数" class="headerlink" title="fgets() 和fputs() 函数"></a>fgets() 和fputs() 函数</h4><p>见字符串那一篇</p>
+<h4 id="rewind-函数"><a href="#rewind-函数" class="headerlink" title="rewind() 函数"></a>rewind() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rewind</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>该函数会让程序回到文件开始处</p>
+<h4 id="fseek-函数"><a href="#fseek-函数" class="headerlink" title="fseek() 函数"></a>fseek() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fseek</span><span class="params">(FILE *stream, <span class="keyword">long</span> offset, <span class="keyword">int</span> whence)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>该函数用于将打开的文件直接移动到任意字节处</p>
+<p>第一个参数是FILE指针，指明带查找的文件</p>
+<p>第二个参数是偏移量，指明从起点处开始要移动的距离，可以为正（前移）或负（后移）或0（保持不动）</p>
+<p>第三个参数是模式，指明起始点，在stdio.h头文件中规定了以下几种表示模式的明示常量</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>起始点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SEEK_SET</td>
+<td>文件开始处</td>
+</tr>
+<tr>
+<td>SEEK_CUR</td>
+<td>当前位置</td>
+</tr>
+<tr>
+<td>SEEK_END</td>
+<td>文件末尾</td>
+</tr>
+</tbody></table>
+<p>如果正常移动，该函数返回0，如果出现错误（比如移动的距离超出文件的范围），就返回-1</p>
+<h4 id="ftell-函数"><a href="#ftell-函数" class="headerlink" title="ftell() 函数"></a>ftell() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">ftell</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>该函数用于参数指向的文件的当前位置距离距文件开始处的字节数</p>
+<p>如果执行成功，该函数会返回文件的当前位置距离距文件开始处的字节数，如果执行失败，则会返回-1L</p>
+<p>该函数可以和fseek() 函数配合使用，比如计算文件的字节数</p>
+<h4 id="fgetpos-和fsetpos-函数"><a href="#fgetpos-和fsetpos-函数" class="headerlink" title="fgetpos() 和fsetpos() 函数"></a>fgetpos() 和fsetpos() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fgetpos</span><span class="params">(FILE *stream, <span class="keyword">fpos_t</span> *pos)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fsetpos</span><span class="params">(FILE *stream, <span class="keyword">const</span> <span class="keyword">fpos_t</span> *pos)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>ftell() 和fseek() 由于使用long类型来表示字节数，如果文件很大，long的范围可能无法表示全部的字节</p>
+<p>处理大文件时，可以使用fgetpos() 和fsetpos() 函数来处理大文件</p>
+<p>这两个函数不使用long类型的值来表示位置，而是使用fpos_t类型（一种定义在stdio.h头文件中的新类型）</p>
+<p>调用fgetpos()函数时，会把第一个参数指向的文件的当前位置的值以fpos_t类型保存在第二个参数指向的位置上，该值描述了文件当前位置距离文件开头的字节数</p>
+<p>调用fsetpos() 函数时，会将第一个参数指向的文件的位置移到当前位置偏移第二个参数的值后的位置</p>
+<p>如果成功，这两个函数都会返回0，如果失败，则返回非0</p>
+<h4 id="fflush-函数"><a href="#fflush-函数" class="headerlink" title="fflush() 函数"></a>fflush() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fflush</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>该函数会使输出缓冲区中所有的未写入数据发送到参数指定的输出文件，这个过程称为<strong>刷新缓冲区</strong></p>
+<p>如果参数是空指针，所有的输出缓冲区都会被刷新</p>
+<h4 id="setvbuf-函数"><a href="#setvbuf-函数" class="headerlink" title="setvbuf() 函数"></a>setvbuf() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setvbuf</span><span class="params">(FILE *stream, <span class="keyword">char</span> *buf, <span class="keyword">int</span> mode, <span class="keyword">size_t</span> size)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>该函数创建一个供标准I/O函数替换使用的缓冲区</p>
+<p>需要在打开文件后且未对流进行其他操作之前调用该函数</p>
+<p>第一个参数指向待处理的流，第二个参数指向待使用的存储区，第三个参数指明模式，第四个参数指明缓冲区的大小</p>
+<p>buf应是一个具有一定大小的存储空间，比如一个数组，如果把NULL作为buf的值，该函数会自动分配一个size大小的缓冲区</p>
+<p>mode有如下几种选择</p>
+<table>
+<thead>
+<tr>
+<th>mod</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_IOFBF</td>
+<td>完全缓冲（缓冲区满时刷新）</td>
+</tr>
+<tr>
+<td>_IOLBF</td>
+<td>行缓冲（缓冲区满或写入一个换行符时刷新）</td>
+</tr>
+<tr>
+<td>_IONBF</td>
+<td>无缓冲</td>
+</tr>
+</tbody></table>
+<p>如果操作成功，就返回0，如果失败，就返回一个非零值</p>
+<h4 id="fread-和fwrite-函数"><a href="#fread-和fwrite-函数" class="headerlink" title="fread() 和fwrite() 函数"></a>fread() 和fwrite() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">fread</span><span class="params">(<span class="keyword">void</span> *ptr, <span class="keyword">size_t</span> size, <span class="keyword">size_t</span> nmemb, FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">size_t</span> <span class="title">fwrite</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *ptr, <span class="keyword">size_t</span> size, <span class="keyword">size_t</span> nmemb,FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>前面的I/O函数在读取和写入是都是按字符的格式进行的，因此可能会造成精度损失，比如，读取3.333333这样一个浮点数时，只能获取它的字符串形式，不能直接读取一个double，就可能造成误差</p>
+<p>使用fread() 和fwrite() 函数可以以二进制形式处理数据</p>
+<p>第一个参数是待写入数据的地址或待读取数据的地址，第二个参数指明待写入或待读取的一个数据块的大小，第三个参数指明待写入或待读取的数据块的数量，最后一个参数指定待写入或待读取的文件</p>
+<h4 id="feof-和ferror-函数"><a href="#feof-和ferror-函数" class="headerlink" title="feof() 和ferror() 函数"></a>feof() 和ferror() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">feof</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ferror</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>如果标准I/O函数返回EOF，通常表明函数已到达文件结尾，但是，当出现错误时，也会返回EOF</p>
+<p>feof() 和ferroe() 函数用于区分这两种情况</p>
+<p>当上一次输入调用检测到文件结尾时，feof() 函数返回一个非零值，否则返回0</p>
+<p>当读或写出现错误，ferror() 函数返回一个非零值，否则返回0</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h4 id="exit-函数"><a href="#exit-函数" class="headerlink" title="exit() 函数"></a>exit() 函数</h4><p>函数原型为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span><span class="params">(<span class="keyword">int</span> status)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>exit() 函数关闭所有打开的文件并结束程序。exit的参数被传递给一些操作系统，以供其他应用程序使用</p>
+<p>用0或EXIT_SUCCESS表明成功结束程序</p>
+<p>用EXIT_FAILUER表明失败结束程序</p>
+<p>在main() 中调用return和exit() 的效果相同，但是爱其他函数中宏，return只会把控制权交给上一级递归，而调用exit() 能结束整个程序</p>
+<p>上述宏和该函数的原型都在stdlib.h头文件中</p>
+
+    </div>
+    
+      <div class="prev-or-next">
+        <div class="post-foot-next">
+          
+            <a href="/fegnaon.blog/2021/11/06/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%EF%BC%8C%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB%E3%80%81%E9%93%BE%E6%8E%A5%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" target="_self">
+              <i class="iconfont icon-chevronleft"></i>
+              <span>PREV</span>
+            </a>
+          
+        </div>
+        <div class="post-attach">
+          <span class="post-pubtime">2021-11-10</span>
+          <span class="post-tags">
+            
+              <i class="iconfont icon-tags"></i>
+              
+              <span class="span--tag">
+                <a href="/fegnaon.blog/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+                  #C语言学习
+                </a>
+              </span>
+              
+            
+          </span>
+        </div>
+        <div class="post-foot-prev">
+          
+        </div>
+      </div>
+    
+  </div>
+  
+  <div class="post-catalog" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="toc-text">基本知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">文件是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%A8%A1%E5%BC%8F%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E5%BC%8F"><span class="toc-text">文本模式和二进制模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%86%85%E5%AE%B9"><span class="toc-text">文本内容和二进制内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%87%E6%9C%AC%E6%A8%A1%E5%BC%8F%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%A8%A1%E5%BC%8F"><span class="toc-text">文件的文本模式和二进制模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O%E7%9A%84%E7%BA%A7%E5%88%AB"><span class="toc-text">I&#x2F;O的级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6"><span class="toc-text">标准文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86I-O"><span class="toc-text">标准I&#x2F;O</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E5%B0%BE"><span class="toc-text">文件结尾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86I-O%E7%9A%84%E6%9C%BA%E7%90%86"><span class="toc-text">标准I&#x2F;O的机理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86I-O%E5%87%BD%E6%95%B0"><span class="toc-text">标准I&#x2F;O函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#fopen-%E5%87%BD%E6%95%B0"><span class="toc-text">fopen() 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8C%87%E9%92%88"><span class="toc-text">文件指针</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getc-%E5%87%BD%E6%95%B0%E5%92%8Cputc-%E5%87%BD%E6%95%B0"><span class="toc-text">getc() 函数和putc() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fclose-%E5%87%BD%E6%95%B0"><span class="toc-text">fclose() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sprintf-%E5%92%8Cscanf-%E5%87%BD%E6%95%B0"><span class="toc-text">sprintf() 和scanf() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fgets-%E5%92%8Cfputs-%E5%87%BD%E6%95%B0"><span class="toc-text">fgets() 和fputs() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rewind-%E5%87%BD%E6%95%B0"><span class="toc-text">rewind() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fseek-%E5%87%BD%E6%95%B0"><span class="toc-text">fseek() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ftell-%E5%87%BD%E6%95%B0"><span class="toc-text">ftell() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fgetpos-%E5%92%8Cfsetpos-%E5%87%BD%E6%95%B0"><span class="toc-text">fgetpos() 和fsetpos() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fflush-%E5%87%BD%E6%95%B0"><span class="toc-text">fflush() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#setvbuf-%E5%87%BD%E6%95%B0"><span class="toc-text">setvbuf() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fread-%E5%92%8Cfwrite-%E5%87%BD%E6%95%B0"><span class="toc-text">fread() 和fwrite() 函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#feof-%E5%92%8Cferror-%E5%87%BD%E6%95%B0"><span class="toc-text">feof() 和ferror() 函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#exit-%E5%87%BD%E6%95%B0"><span class="toc-text">exit() 函数</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+
+  <script src="/js/catalog.js"></script>
+
+
+
+  
+    <div class="comments-container">
+      
+
+
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'pJO11kdr6VATRADnTpOyahq6-gzGzoHsz',
+      appKey: 'ID7NB8cl8t1mmczTV9KnIFWO',
+      placeholder: 'Welcome!',
+      avatar: 'retro'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+    </div>
+  
+</div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2020</a>
+    </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+<script src="/js/backtotop.js"></script>
+
+
+    </div>
+  </body>
+</html>
