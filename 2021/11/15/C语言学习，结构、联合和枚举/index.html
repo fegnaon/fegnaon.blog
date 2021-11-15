@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="author" content="zchengsite, 1451426471@qq.com" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <title>C语言学习，结构、联合和枚举 | fegnaon的小博客</title>
+
+  
+    <link rel="apple-touch-icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+    <link rel="icon" href="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/fegnaon.blog/css/base.css">
+<link rel="stylesheet" href="/fegnaon.blog/iconfont/iconfont.css">
+<link rel="stylesheet" href="/fegnaon.blog/css/github-markdown.css">
+<link rel="stylesheet" href="/fegnaon.blog/css/highlight.css">
+
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/fegnaon.blog/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  
+    <!-- valine comments -->
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/fegnaon.blog/atom.xml" title="fegnaon的小博客" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/"><img src="https://i.loli.net/2021/10/05/cgQ8xVDLNIwP7kj.jpg" alt="" class="js-avatar show"></a>
+    <div class="nickname"><a href="/">fegnaon</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/fegnaon.blog">
+          <a href="/fegnaon.blog">主页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/fegnaon.blog/archives">
+          <a href="/fegnaon.blog/archives">归档</a>
+        </li>
+      
+        <li class="nav-item" data-path="/fegnaon.blog/tags">
+          <a href="/fegnaon.blog/tags">标签</a>
+        </li>
+      
+        <li class="nav-item" data-path="/fegnaon.blog/about">
+          <a href="/fegnaon.blog/about">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<script src="/js/activeNav.js"></script>
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+
+
+
+
+
+
+
+
+<!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+<div class="container post-details" id="post-details">
+  <div class="post-content">
+    <div class="post-title">C语言学习，结构、联合和枚举</div>
+    <div class="post-attach">
+      <span class="post-pubtime">2021-11-15</span>
+      <span class="post-tags">
+        
+          <i class="iconfont icon-tags"></i>
+          
+          <span class="span--tag">
+            <a href="/fegnaon.blog/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+              #C语言学习
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="markdown-body">
+      <h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>结构（struct）是一种自定义的数据类型，它可以包含各种数据类型的成员，比如 int ，double，数组，指针甚至是另一种结构</p>
+<h3 id="声明结构"><a href="#声明结构" class="headerlink" title="声明结构"></a>声明结构</h3><p>使用结构前要声明结构是由那些东西组成的，语句如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Name</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">double</span> b;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>使用struct关键字来声明结构，在struct后面的是结构的标记，用大括号括起来的是结构的成员的类型和名称，最后要有分号</p>
+<h3 id="定义结构变量"><a href="#定义结构变量" class="headerlink" title="定义结构变量"></a>定义结构变量</h3><p>上面的结构声明创建了一种名为struct Name的新类型，用这个类型名就可以像用 int 一样来定义结构变量，如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Name</span> <span class="title">i</span>;</span></span><br></pre></td></tr></table></figure>
+
+<p>表示创建了一个类型为struct Name的标识符为 i 的变量</p>
+<p>在声明结构时可以同时定义结构变量，如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Name</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">double</span> b;</span><br><span class="line">    ...</span><br><span class="line">&#125;i;</span><br></pre></td></tr></table></figure>
+
+<p>表示在声明了结构的同时也定义了类型为该结构的 i 变量</p>
+<p>声明结构时也可以不写结构标记，如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">double</span> b;</span><br><span class="line">    ...</span><br><span class="line">&#125;i;</span><br></pre></td></tr></table></figure>
+
+<p>表示定义了有大括号中的成员的 i 变量，但是因为没有标记，就无法再定义新的相同类型的结构了</p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>定义结构变量时可以初始化结构变量，只定义而不初始化的话，结构中成员的值是原来内存上的没有意义的值，方法和初始化数组的相似</p>
+<p>比如一个这样的结构</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">example</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> first;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">string</span>[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">long</span> third;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>可以按顺序来初始化，如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">example</span> <span class="title">a</span> =</span> &#123;<span class="number">12</span>,<span class="string">&quot;hello&quot;</span>,<span class="number">666</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>大括号中的值会被依次按顺序赋给结构中的成员，此时first == 12，字符串为”hello”，third为666</p>
+<p>也可以使用点运算符（.）来指定特定的成员赋值，如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">example</span> <span class="title">a</span> =</span> &#123;.third = <span class="number">25</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>表示 a 中的third成员被赋值25。当对一个结构进行部分初始时，其他的成员会被自动初始化为0</p>
+<p>若指定的成员后面还有值，回想初始化数组时从指定的成员后面开始依次初始化</p>
+<p>成员最终被初始化的值为最后一次初始化时获得的值</p>
+<h3 id="访问结构中的成员"><a href="#访问结构中的成员" class="headerlink" title="访问结构中的成员"></a>访问结构中的成员</h3><p>访问结构中的成员有以下两种方式</p>
+<ol>
+<li><p>直接使用结构的标识符时，可以使用点运算符（或叫成员运算符）（.）加成员的标识符来访问成员，比如</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.first</span><br></pre></td></tr></table></figure>
+
+<p>  可以直接当做一个单独的int类型的变量来使用</p>
+</li>
+<li><p>当使用指向结构的指针时，可以使用箭头运算符（或叫箭头成员运算符）（-&gt;）加成员的标识符来访问成员，比如</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">example</span> *<span class="title">pt</span> =</span> a;</span><br><span class="line">pt-&gt;first</span><br></pre></td></tr></table></figure>
+
+<p>  可以直接当做一个单独的int类型的变量来使用</p>
+</li>
+</ol>
+<h3 id="复合字面量和结构"><a href="#复合字面量和结构" class="headerlink" title="复合字面量和结构"></a>复合字面量和结构</h3><p>C语言的复合字面量特性可以用于结构</p>
+<p>对于一些只需要临时使用的结构，复合字面量很好用</p>
+<p>语法是小括号括起来的类型加上大括号括起来的初始化列表，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(struct example)&#123;<span class="number">12</span>,<span class="string">&quot;hello&quot;</span>,<span class="number">666</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>可以用做函数参数，给其他结构赋值或者用一个指向它的指针来保存</p>
+<p>复合字面量如果在所有函数的外面，就具有静态存储期，如果在块内，就具有自动存储期</p>
+<h3 id="可伸缩型数组成员"><a href="#可伸缩型数组成员" class="headerlink" title="可伸缩型数组成员"></a>可伸缩型数组成员</h3><p>当结构的数组成员有以下特征，该成员就是一个可伸缩型数组成员</p>
+<ol>
+<li>  是结构中的最后一个成员</li>
+<li>  方括号中为空</li>
+</ol>
+<p>比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">example2</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> first;</span><br><span class="line">    <span class="keyword">char</span> b[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>中的b就是一个可伸缩型数组成员</p>
+<p>当定义一个类型为struct example2类型的变量时，该变量的存储空间中不会为b分配空间，只会为其他成员分配空间</p>
+<p>但是当使用指针和malloc() 来创建该类型的结构时，多分配的内存就会作为b的空间，如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">example2</span> *<span class="title">pt</span> =</span> (struct example2*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct example2)+n*<span class="keyword">sizeof</span>(<span class="keyword">char</span>));</span><br></pre></td></tr></table></figure>
+
+<p>就表示为b分配了n个char类型的大小</p>
+<p>如果结构中的结构想有可伸缩型数组成员，该结构中的结构必须是结构的最后一个成员</p>
+<h3 id="结构和文件"><a href="#结构和文件" class="headerlink" title="结构和文件"></a>结构和文件</h3><p>对于一些很大的结构，将每个成员单独保存到文件中或者从文件中单独读取每个成员可能会很麻烦</p>
+<p>可以考虑使用fread() 和fwrite() 来以二进制的形式整个读取或保存，但是要注意，不同的系统或者不同的编译器甚至同一编译器不同的设置都可能会导致二进制形式的不同</p>
+<h2 id="联合"><a href="#联合" class="headerlink" title="联合"></a>联合</h2><p>联合（union）也是一种数据类型，它能在同一存储空间中存储不同的数据类型（不是同时存储）</p>
+<h3 id="声明联合"><a href="#声明联合" class="headerlink" title="声明联合"></a>声明联合</h3><p>声明联合和声明结构类似，不过关键字要用union，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">a</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">double</span> b;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>根据以上的声明，就创建了一种名为union a的数据类型，该种数据类型既能存储 int 也能存储 double 也能存储 char</p>
+<h3 id="定义联合变量"><a href="#定义联合变量" class="headerlink" title="定义联合变量"></a>定义联合变量</h3><p>定义联合变量和定义结构变量类型，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">a</span> <span class="title">d</span>;</span></span><br></pre></td></tr></table></figure>
+
+<p>就定义了一个标识符为d的类型为union a的变量</p>
+<p>当定义该变量时，编译器会为d分配足够容纳它占用存储空间的可能的类型的存储空间，比如这里a中最大的类型为double，d的存储空间就是一个double的大小</p>
+<h4 id="初始化联合"><a href="#初始化联合" class="headerlink" title="初始化联合"></a>初始化联合</h4><p>初始化联合有三种方式</p>
+<ol>
+<li><p>  用另一个同类型的联合来初始化</p>
+</li>
+<li><p>用大括号括起来的一个值来初始化，比如</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">a</span> =</span> &#123;<span class="number">88</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>  该联合中同类型的成员就会被初始化为88（C中数字字面量默认是int类型，88L才是long类型）</p>
+</li>
+<li><p>使用指定初始化器来初始化</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">a</span> =</span> &#123;.b = <span class="number">1.1</span>&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="访问联合"><a href="#访问联合" class="headerlink" title="访问联合"></a>访问联合</h3><p>访问联合两种方式和访问结构的一样</p>
+<p>但是联合在同一时间只能存储一个值，初始化或每次给联合中的某个成员赋值都会覆盖存储空间中原来的值，再访问其他成员时得到的值就没有意义了</p>
+<h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><p>可以使用枚举类型（enumerated type）声明符号名称表示整型常量</p>
+<p>可以看做是编译阶段（而非预处理阶段）的宏#define</p>
+<p>声明时可以定义一些符号名称（也称为枚举符）来和某个整型常量对于，语句如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">example</span>&#123;</span>a,b,c&#125;;  <span class="comment">//没有指定数时，a,b,c默认情况下为0,1,2</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">example</span>&#123;</span>a,b = <span class="number">10</span>,c&#125;;  <span class="comment">//a为0，b为指定的10，c为从上一个指定的数的开始依次递增到的数，这里为11</span></span><br></pre></td></tr></table></figure>
+
+<p>在该声明有效的范围内，就可以用a,b,c来表示他们对于的整型常量</p>
+<p>在编译时，实际上是先将枚举符替换为他们对于的整型常量，然后再进一步处理</p>
+<p>在声明枚举类型时，也可以想定义结构变量或联合变量时一样定义变量，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">example</span>&#123;</span>a,b,c&#125;d;</span><br></pre></td></tr></table></figure>
+
+<p>但是这里d其实是 int 类型</p>
+<h2 id="typedef关键字"><a href="#typedef关键字" class="headerlink" title="typedef关键字"></a>typedef关键字</h2><p>可以使用typedef关键字来为数据类型自定义别名</p>
+<p>用法可以看做是定义变量的语句前加上typedef关键字并且不进行初始化，变量名的位置就是为该种数据类型自定义的别名，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> NB;    <span class="comment">//之后NB就可以看做是int的别名</span></span><br></pre></td></tr></table></figure>
+
+<p>typedef对结构和复杂数组来说很好用，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">a</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;NB;              <span class="comment">//NB就是stuct a的别名</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> NB[<span class="number">5</span>];   <span class="comment">//NB就是int [5]，即含有5个int类型的数组的别名</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：typedef只是为某种数据自定义一个别名，并不是像宏一样在编译前进行替换</p>
+
+    </div>
+    
+      <div class="prev-or-next">
+        <div class="post-foot-next">
+          
+            <a href="/fegnaon.blog/2021/11/10/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%EF%BC%8C%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA/" target="_self">
+              <i class="iconfont icon-chevronleft"></i>
+              <span>PREV</span>
+            </a>
+          
+        </div>
+        <div class="post-attach">
+          <span class="post-pubtime">2021-11-15</span>
+          <span class="post-tags">
+            
+              <i class="iconfont icon-tags"></i>
+              
+              <span class="span--tag">
+                <a href="/fegnaon.blog/tags/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+                  #C语言学习
+                </a>
+              </span>
+              
+            
+          </span>
+        </div>
+        <div class="post-foot-prev">
+          
+        </div>
+      </div>
+    
+  </div>
+  
+  <div class="post-catalog" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84"><span class="toc-text">结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E7%BB%93%E6%9E%84"><span class="toc-text">声明结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E7%BB%93%E6%9E%84%E5%8F%98%E9%87%8F"><span class="toc-text">定义结构变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">初始化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E7%BB%93%E6%9E%84%E4%B8%AD%E7%9A%84%E6%88%90%E5%91%98"><span class="toc-text">访问结构中的成员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%90%88%E5%AD%97%E9%9D%A2%E9%87%8F%E5%92%8C%E7%BB%93%E6%9E%84"><span class="toc-text">复合字面量和结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E4%BC%B8%E7%BC%A9%E5%9E%8B%E6%95%B0%E7%BB%84%E6%88%90%E5%91%98"><span class="toc-text">可伸缩型数组成员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%92%8C%E6%96%87%E4%BB%B6"><span class="toc-text">结构和文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E5%90%88"><span class="toc-text">联合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E8%81%94%E5%90%88"><span class="toc-text">声明联合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%81%94%E5%90%88%E5%8F%98%E9%87%8F"><span class="toc-text">定义联合变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E8%81%94%E5%90%88"><span class="toc-text">初始化联合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E8%81%94%E5%90%88"><span class="toc-text">访问联合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE"><span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typedef%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">typedef关键字</span></a></li></ol>
+    </div>
+  </div>
+
+  <script src="/js/catalog.js"></script>
+
+
+
+  
+    <div class="comments-container">
+      
+
+
+  <div id="vcomments"></div>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: 'pJO11kdr6VATRADnTpOyahq6-gzGzoHsz',
+      appKey: 'ID7NB8cl8t1mmczTV9KnIFWO',
+      placeholder: 'Welcome!',
+      avatar: 'retro'
+    })
+  </script>
+
+    <style>
+      .comments-container .v .vempty {
+        display: none!important;
+      }
+    </style>
+
+
+
+
+    </div>
+  
+</div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="rss" href="atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2020</a>
+    </div>
+  
+    <div class="footer-more">
+      <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+<script src="/js/backtotop.js"></script>
+
+
+    </div>
+  </body>
+</html>
