@@ -6,7 +6,7 @@
   <link href="https://fegnaon.github.io/fegnaon.blog/atom.xml" rel="self"/>
   
   <link href="https://fegnaon.github.io/fegnaon.blog/"/>
-  <updated>2021-11-17T12:00:26.980Z</updated>
+  <updated>2021-11-18T15:34:16.582Z</updated>
   <id>https://fegnaon.github.io/fegnaon.blog/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CMU 15-213 Cprogramminglab</title>
+    <link href="https://fegnaon.github.io/fegnaon.blog/2021/11/18/CMU-15-213-Cprogramminglab/"/>
+    <id>https://fegnaon.github.io/fegnaon.blog/2021/11/18/CMU-15-213-Cprogramminglab/</id>
+    <published>2021-11-18T15:00:58.000Z</published>
+    <updated>2021-11-18T15:34:16.582Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;源代码&quot;&gt;&lt;a href=&quot;#源代码&quot; class=&quot;headerlink&quot; title=&quot;源代码&quot;&gt;&lt;/a&gt;源代码&lt;/h1&gt;&lt;h5 id=&quot;queue-c&quot;&gt;&lt;a href=&quot;#queue-c&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="CMU 15-213" scheme="https://fegnaon.github.io/fegnaon.blog/tags/CMU-15-213/"/>
+    
+  </entry>
   
   <entry>
     <title>C语言学习，函数和指针以及其他一些东西</title>
