@@ -6,7 +6,7 @@
   <link href="https://fegnaon.github.io/fegnaon.blog/atom.xml" rel="self"/>
   
   <link href="https://fegnaon.github.io/fegnaon.blog/"/>
-  <updated>2021-11-18T15:34:16.582Z</updated>
+  <updated>2021-11-20T16:30:03.366Z</updated>
   <id>https://fegnaon.github.io/fegnaon.blog/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CMU-15-213-datalab</title>
+    <link href="https://fegnaon.github.io/fegnaon.blog/2021/11/20/CMU-15-213-datalab/"/>
+    <id>https://fegnaon.github.io/fegnaon.blog/2021/11/20/CMU-15-213-datalab/</id>
+    <published>2021-11-20T15:24:35.000Z</published>
+    <updated>2021-11-20T16:30:03.366Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;源代码&quot;&gt;&lt;a href=&quot;#源代码&quot; class=&quot;headerlink&quot; title=&quot;源代码&quot;&gt;&lt;/a&gt;源代码&lt;/h1&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    
+    <category term="CMU 15-213" scheme="https://fegnaon.github.io/fegnaon.blog/tags/CMU-15-213/"/>
+    
+  </entry>
   
   <entry>
     <title>CMU 15-213 Cprogramminglab</title>
